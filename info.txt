@@ -1,9 +1,0 @@
-Directory Info:
----------------
-- myapp: The directory of the actual appliation
-- app.js: Test node file.
-
-Run App:
---------
-cd myapp
-set DEBUG=myapp:* & npm start
