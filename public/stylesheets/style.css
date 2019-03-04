@@ -10,6 +10,9 @@ body {
 a {
   color: #00B7FF;
 }
+nav{
+  background-color: var(--red);
+}
 .sidenav {
   height: 100%;
   width: 0; 
@@ -21,6 +24,7 @@ a {
   overflow-x: hidden; 
   padding-top: 60px; 
   transition: 0.3s ease; 
+  box-shadow: 5px 0px 8px rgba(48, 48, 48, 0.425);
 }
 
 .sidenav a {
@@ -35,6 +39,7 @@ a {
 .sidenav a:hover {
   background-color: var(--dark-red);
   text-decoration: none;
+  color: white;
 }
 
 
@@ -56,4 +61,10 @@ a {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.fa-bars{
+  font-size: 36px;
+  padding: 8px 8px 8px 8px;
+  color: white;
 }

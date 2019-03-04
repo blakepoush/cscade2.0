@@ -1,5 +1,5 @@
 //
-    nav(class="navbar navbar-expand-sm navbar-dark bg-danger")
+    
         a(class="navbar-brand" href="#")
             img(src="/images/CSCADElogo.png" height="30" alt="")
         button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
@@ -9,10 +9,14 @@
                 a.nav-item.nav-link.active(href='#')
                     | Home 
                     span.sr-only (current)
+nav.navbar.navbar-dark
+    span.fas.fa-bars(onclick='openNav()')
+    img(src="/images/cscade_logo_white.png" height="50" alt="")
 #Sidenav.sidenav
   span.closebtn.fas.fa-times(href='javascript:void(0)' onclick='closeNav()')
-  a(href='#') About
-  a(href='#') Services
-  a(href='#') Clients
-  a(href='#') Contact
-span(onclick='openNav()') open
+  a(href='/dashboard') Dashboard
+  //
+    a(href=#{nav2}) Services
+    a(href=#{nav3}) Clients
+    a(href=#{nav4}) Contact
+
