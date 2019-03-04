@@ -42,11 +42,15 @@ nav{
   color: white;
 }
 
+.sidenav .active {
+  background-color: var(--dark-red);
+}
+
 
 .sidenav .closebtn {
   position: absolute;
   top: 10px;
-  right: 25px;
+  right: 20px;
   font-size: 36px;
   margin-left: 50px;
   color: white;
@@ -67,4 +71,5 @@ nav{
   font-size: 36px;
   padding: 8px 8px 8px 8px;
   color: white;
+  cursor: pointer;
 }
