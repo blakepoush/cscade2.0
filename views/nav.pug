@@ -1,0 +1,18 @@
+//
+    nav(class="navbar navbar-expand-sm navbar-dark bg-danger")
+        a(class="navbar-brand" href="#")
+            img(src="/images/CSCADElogo.png" height="30" alt="")
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarNavAltMarkup.collapse.navbar-collapse
+            .navbar-nav
+                a.nav-item.nav-link.active(href='#')
+                    | Home 
+                    span.sr-only (current)
+#Sidenav.sidenav
+  a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+  a(href='#') About
+  a(href='#') Services
+  a(href='#') Clients
+  a(href='#') Contact
+span(onclick='openNav()') open
