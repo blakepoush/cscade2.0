@@ -1,5 +1,11 @@
 function openNav() {
-    document.getElementById("Sidenav").style.width = "250px";
+    if(document.documentElement.clientWidth > 450){
+        document.getElementById("Sidenav").style.width = "250px";
+    }
+    else{
+        document.getElementById("Sidenav").style.width = "100%";
+    }
+    
 }
  
 
