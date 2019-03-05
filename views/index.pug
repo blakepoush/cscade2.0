@@ -2,8 +2,11 @@ extends layout
 
 block content
   include nav
+  include assignment
   .container  
     .row  
       .col  
-        h1= title
-        p Welcome to #{title}
+        .col-3
+          +assignment('Singly Linked List', '1/30/2019, 2:00pm',true,'ssll')
+          +assignment('Priority Queue', '2/15/2019, 11:59pm',false,'pqueue')
+          +assignment('Huffman\'s Algorithm', '03/01/2019, 2:00pm',true,'huff')

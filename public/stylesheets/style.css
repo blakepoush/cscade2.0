@@ -90,3 +90,25 @@ nav{
   background: var(--dark-red);
   color: white;
 }
+
+.white-btn{
+  background: white;
+  color: var(--cscade-red);
+}
+
+.white-btn:hover{
+  color: var(--cscade-red);
+}
+
+#assignment{
+  background: var(--cscade-red);
+  color: white;
+}
+
+
+
+#assignment i{
+  font-size: 35px;
+  padding-left: 10px;
+  /*line-height: 0;*/
+}

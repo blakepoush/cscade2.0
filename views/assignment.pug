@@ -1,0 +1,11 @@
+mixin assignment(title, due, submitted,infopage)
+    #assignment.card.sm-row.mt-2
+        .card-body
+            p.card-title= title
+            p.card-text Due: #{due}
+            .row
+                a.btn.white-btn.ml-3(href= '/'+ infopage) View More
+                if submitted
+                    i.far.fa-check-circle
+                else
+                    i.far.fa-times-circle 
