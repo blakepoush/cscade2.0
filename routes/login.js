@@ -4,8 +4,8 @@ var router  = express.Router();
 /* GET Login Page */
 router.get('/', function(req, res, next) {
   res.render('login', {
-     title: 'Login',
-     page: 'Home'
+     title: 'Student Login',
+     page: 'Login'
     });
 });
 

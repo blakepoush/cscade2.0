@@ -3,21 +3,22 @@ extends layout
 block content
     nav.navbar.navbar-dark
         img(src="/images/cscade_logo_white.png" height="50" alt="")
-    div.container
-        div.row
-          div.col
-            h1= title
-        div.row
-            div.col
-                form
-                    .form-group
-                      label(for='exampleInputEmail1') Email address
-                      input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
-                      small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
-                    .form-group
-                      label(for='exampleInputPassword1') Password
-                      input#exampleInputPassword1.form-control(type='password' placeholder='Password')
-                    .form-check
-                      input#exampleCheck1.form-check-input(type='checkbox')
-                      label.form-check-label(for='exampleCheck1') Check me out
-                    button.btn.btn-primary(type='submit') Submit
+    .container.mt-4
+      .row.justify-content-center
+        .col-lg-6
+          h1= title
+      .row.justify-content-center
+        .col-lg-6
+          form(method='GET' action='/dashboard')
+            .form-group
+              label(for='userName') Username
+              input#userName.form-control(type='text' placeholder='Username' name='username')
+            .form-group
+              label(for='userPassword') Password
+              input#userPassword.form-control(type='password' placeholder='Password' name='password')
+              small#emailHelp.form-text.text-muted Your username and password are the same as for your A-State student account, excluding "@smail.astate.edu".
+            .form-check
+              //input#exampleCheck1.form-check-input(type='checkbox')
+              //label.form-check-label(for='exampleCheck1') Check me out
+            //button.btn.red-btn(type='submit') Login
+            a.btn.red-btn(href='/dashboard') Login

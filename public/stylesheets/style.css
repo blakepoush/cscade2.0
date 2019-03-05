@@ -73,15 +73,20 @@ nav{
   position: absolute;
   bottom: 0;
 }
-/*
-@media screen and (max-width: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-*/
+
 .fa-bars{
   font-size: 36px;
   padding: 8px 8px 8px 8px;
   color: white;
   cursor: pointer;
+}
+
+.red-btn {
+  background: var(--cscade-red);
+  color: white;
+}
+
+.red-btn:hover {
+  background: var(--dark-red);
+  color: white;
 }
