@@ -1,5 +1,5 @@
 :root {
-  --red: #cb0000;
+  --cscade-red: #cb0000;
   --dark-red: #ad0000;
 }
 
@@ -11,7 +11,7 @@ a {
   color: #00B7FF;
 }
 nav{
-  background-color: var(--red);
+  background-color: var(--cscade-red);
 }
 .sidenav {
   height: 100%;
@@ -20,7 +20,7 @@ nav{
   z-index: 1; 
   top: 0; 
   left: 0;
-  background-color: var(--red); 
+  background-color: var(--cscade-red); 
   overflow-x: hidden; 
   padding-top: 60px; 
   transition: 0.3s ease; 
@@ -62,11 +62,23 @@ nav{
   padding: 20px;
 }
 
-@media screen and (max-height: 450px) {
+#serverTime{
+  padding: 8px 8px 8px 32px;
+  display: block;
+  font-size: 25px;
+  color: white;
+  background: var(--dark-red);
+  width: 100%;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0;
+}
+/*
+@media screen and (max-width: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
+*/
 .fa-bars{
   font-size: 36px;
   padding: 8px 8px 8px 8px;

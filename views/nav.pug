@@ -1,14 +1,3 @@
-//
-    
-        a(class="navbar-brand" href="#")
-            img(src="/images/CSCADElogo.png" height="30" alt="")
-        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-        #navbarNavAltMarkup.collapse.navbar-collapse
-            .navbar-nav
-                a.nav-item.nav-link.active(href='#')
-                    | Home 
-                    span.sr-only (current)
 nav.navbar.navbar-dark
     span.fas.fa-bars(onclick='openNav()')
     img(src="/images/cscade_logo_white.png" height="50" alt="")
@@ -16,13 +5,10 @@ nav.navbar.navbar-dark
   span.closebtn.fas.fa-times(href='javascript:void(0)' onclick='closeNav()')
   //Example of setting active class based on the title passed to the page
     We can change the title later - Sam.
-  a(href='/dashboard' class=(title === "cscade++") ? 'active': '') Dashboard
+  a(href='/dashboard' class=(title === "cscade 2.0") ? 'active': '') Dashboard
   a(href='/courses') Courses
   a(href='/assignments') Assignments
   a(href='/grades') Grades
   a(href='/logout') Logout
-  //
-    a(href=#{nav2}) Services
-    a(href=#{nav3}) Clients
-    a(href=#{nav4}) Contact
+  span#serverTime HH:MM:SS AM
 
