@@ -3,10 +3,21 @@ extends layout
 block content
   include nav
   include assignment
-  .container  
+  .container 
+    .row.mx-auto.mt-5
+      h1.text-center.col Assignments
+      .col
+        .btn-group
+          button.btn.btn-secondary(type='button') Choose Course
+          button#dropdownMenuReference.btn.btn-secondary.dropdown-toggle.dropdown-toggle-split(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-reference='parent')
+            span.sr-only Toggle Dropdown
+          .dropdown-menu(aria-labelledby='dropdownMenuReference')
+            a.dropdown-item(href='#') Java Application Development
+            a.dropdown-item(href='#') Computer Graphics
+            a.dropdown-item(href='#') Mobile Application Development
     .row  
       .col  
-        .col-3
+        .col-12
           +assignment('Singly Linked List', '1/30/2019, 2:00pm',true,'ssll')
           +assignment('Priority Queue', '2/15/2019, 11:59pm',false,'pqueue')
           +assignment('Huffman\'s Algorithm', '03/01/2019, 2:00pm',true,'huff')
