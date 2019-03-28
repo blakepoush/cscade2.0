@@ -1,5 +1,3 @@
-'use strict';
-
 //var Task = require('../model/appModel.js');
 
 module.exports.index = function(req, res, next) {
