@@ -2,7 +2,7 @@
  * Controller to handle user operations.
  */
 
-//var Task = require('../model/userModel.js');
+var userModel = require('../models/userModel.js');
 
 /**
  * Retrieve Login Page. (GET)

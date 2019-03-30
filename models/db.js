@@ -1,3 +1,8 @@
+/**
+ * File where connection to psql database is establised.
+ */
+
+/* 
 var mysql = require('mysql');
 
 //local mysql db connection
@@ -13,3 +18,4 @@ connection.connect(function(err) {
 });
 
 module.exports = connection;
+*/
