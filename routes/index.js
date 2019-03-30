@@ -1,12 +1,19 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * Router to handle request involving user operations
+ * like logging in and logging out.
+ */
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', {
-     title: 'cscade 2.0',
-     page: 'Home'
-  });
-});
+var express = require('express');
+var router  = express.Router();
+var userController = require("../controllers/userController");
+
+/** GET Requests **/
+
+// Login Page
+router.get('/', userController.index);
+
+/** POST Requests */
+router.post('/login', userController.login);
+router.post('/logout', userController.logout);
 
 module.exports = router;
