@@ -100,14 +100,15 @@ nav{
   color: var(--cscade-red);
 }
 
-#assignment{
-  background: var(--cscade-red);
+.card{
+  background: var(--cscade-red) !important;
   color: white;
+  min-height: 104px;
 }
 
 
 
-#assignment i{
+.assignment i{
   font-size: 35px;
   padding-left: 10px;
 }
