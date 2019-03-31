@@ -9,7 +9,7 @@ var logger = require('morgan');
 // Retrieve Routers
 var indexRouter     = require('./routes');
 var dashboardRouter = require('./routes/dashboard');
-//var courseRouter     = require('./routes/courses');
+var courseRouter     = require('./routes/courses');
 var assignmentRouter = require('./routes/assignments');
 
 // Start Express
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // User Routers
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);
-//app.use('/courses', courseRouter);
+app.use('/courses', courseRouter);
 app.use('/assignments', assignmentRouter);
 
 // Catch 404 and Forward to Error Handler
