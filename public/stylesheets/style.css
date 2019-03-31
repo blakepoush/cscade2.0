@@ -25,6 +25,7 @@ nav{
   padding-top: 60px; 
   transition: 0.3s ease; 
   box-shadow: 5px 0px 8px rgba(48, 48, 48, 0.425);
+  white-space: nowrap;
 }
 
 .sidenav a {
