@@ -4,9 +4,10 @@ block content
   include partials/nav
   include mixins/assignment
   .container 
-    .row.mx-auto.mt-5
-      h1.text-center.col Assignments
-      .col
+    .row.mx-auto.mt-5.align-items-center
+      .col 
+        h1.text-center Dashboard
+      .col.text-center
         .btn-group
           button.btn.btn-secondary(type='button') Choose Course
           button#dropdownMenuReference.btn.btn-secondary.dropdown-toggle.dropdown-toggle-split(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-reference='parent')
