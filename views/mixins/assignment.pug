@@ -1,10 +1,10 @@
-mixin assignment(title, due, submitted,infopage)
-    #assignment.card.lg-row.mt-2
+mixin assignment(title, due, submitted,assignmentid)
+    .assignment.card.lg-row.mt-2
         .card-body.p-2
-            p.card-title.mb-0= title
-            p.card-text.mb-0 Due: #{due}
-            .row
-                a.btn.white-btn.ml-3(href= '/'+ infopage) View More
+            p.card-title.mb-0.font-weight-bold= title
+            p.card-text.mb-1 Due: #{due}
+            .row.align-items-center
+                a.btn.white-btn.ml-3.mr-2.py-0.px-1.font-weight-bold(href= '/assignments/'+ assignmentid) View More
                 if submitted
                     i.far.fa-check-circle
                 else

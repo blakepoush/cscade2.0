@@ -2,22 +2,14 @@ extends layout
 
 block content
   include mixins/assignment
+  include mixins/announcement
   .container 
     .row.mx-auto.mt-4.align-items-center
-      .col 
-        h1.text-center= page
-      .col.text-center
-        .btn-group
-          button.btn.btn-secondary(type='button') Choose Course
-          button#dropdownMenuReference.btn.btn-secondary.dropdown-toggle.dropdown-toggle-split(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' data-reference='parent')
-            span.sr-only Toggle Dropdown
-          .dropdown-menu(aria-labelledby='dropdownMenuReference')
-            a.dropdown-item(href='#') Java Application Development
-            a.dropdown-item(href='#') Computer Graphics
-            a.dropdown-item(href='#') Mobile Application Development
-    .row  
-      .col  
-        .col-12
-          +assignment('Singly Linked List', '1/30/2019, 2:00pm',true,'ssll')
-          +assignment('Priority Queue', '2/15/2019, 11:59pm',false,'pqueue')
-          +assignment('Huffman\'s Algorithm', '03/01/2019, 2:00pm',true,'huff')
+        h1.col.text-center= page
+    .row   
+      .col-5
+        each item in assignments
+            +assignment(item.title,item.due,item.submitted,item.assignmentid)
+      .col-2
+      .col-5
+        +announcement(null,"root beer is epic.")
