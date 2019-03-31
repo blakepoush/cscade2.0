@@ -1,6 +1,7 @@
 // Include Dependencies
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -13,6 +14,7 @@ var assignmentRouter = require('./routes/assignments');
 
 // Start Express
 var app = express();
+//app.use(session());
 
 // View Engine Setup
 app.set('views', path.join(__dirname, 'views'));
