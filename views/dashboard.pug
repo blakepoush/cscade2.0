@@ -1,12 +1,11 @@
 extends layout
 
 block content
-  include partials/nav
   include mixins/assignment
   .container 
-    .row.mx-auto.mt-5.align-items-center
+    .row.mx-auto.mt-4.align-items-center
       .col 
-        h1.text-center Dashboard
+        h1.text-center= page
       .col.text-center
         .btn-group
           button.btn.btn-secondary(type='button') Choose Course

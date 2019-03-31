@@ -9,8 +9,7 @@ var router = express.Router();
 // Get Dashboard
 router.get('/', function(req, res, next) {
   res.render('dashboard', {
-     title: 'cscade 2.0',
-     page: 'Home'
+     page: 'Dashboard'
   });
 });
 

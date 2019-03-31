@@ -3,10 +3,10 @@ nav.navbar.navbar-dark
     img(src="/images/cscade_logo_white.png" height="50" alt="")
 #Sidenav.sidenav
   span.closebtn.fas.fa-times(href='javascript:void(0)' onclick='closeNav()')
-  a(href='/dashboard' class=(title === "cscade 2.0") ? 'active': '') Dashboard
-  a(href='/courses') Courses
-  a(href='/assignments') Assignments
-  a(href='/grades') Grades
+  a(href='/dashboard' class=(page === "Dashboard") ? 'active': '') Dashboard
+  a(href='/courses' class=(page === "Courses") ? 'active': '') Courses
+  a(href='/assignments' class=(page === "Assignments") ? 'active': '') Assignments
+  a(href='/grades' class=(page === "Grades") ? 'active': '') Grades
   a(href='/') Logout
   span#serverTime HH:MM:SS AM
 

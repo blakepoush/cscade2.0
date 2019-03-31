@@ -2,8 +2,7 @@
  * Get the Courses Page.
  */
 module.exports.index = function(req, res, next) {
-  res.render('login', {
-    title: 'Student Login',
-    page: 'Login'
+  res.render('courses', {
+    page: 'Courses'
    });
 }
