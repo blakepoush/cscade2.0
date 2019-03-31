@@ -11,6 +11,8 @@ var userController = require("../controllers/userController");
 
 // Login Page
 router.get('/', userController.index);
+// Useful Links
+router.get('/usefulLinks', userController.usefulLinks);
 
 /** POST Requests */
 router.post('/login', userController.login);

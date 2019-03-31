@@ -14,6 +14,16 @@ module.exports.index = function(req, res, next) {
 };
 
 /**
+ * Get Useful Links Page. (Get)
+ */
+module.exports.usefulLinks = function(req, res, next) {
+  //Check if user is logged in
+  res.render('usefulLinks', {
+    page: 'Useful Links'
+   });
+}
+
+/**
  * Login a User. (POST)
  */
 module.exports.login = function(req, res, next) {
