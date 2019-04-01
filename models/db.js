@@ -19,13 +19,7 @@ connection.connect(function(err) {
 
 module.exports = connection;*/
 
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'root',   
-  host: 'localhost',
-  database: 'mydb',  
-  password: 'password',   
-  port: 5432,
-})
+const pgp = require('pg-promise')();
+const db = pgp('postgres://root:password@localhost:5432/mydb')
 
-module.exports = pool;
+module.exports = db;
