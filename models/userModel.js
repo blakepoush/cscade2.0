@@ -5,7 +5,7 @@ var connection = require("./db.js");
  */
 const retrieveUser = function( connection, email, password) {
   //Use connection after the db is set up to retreive user information from the DB.
-  connection.query('SELECT * FROM users WHERE  email = $1 and password = $2', [email,password], (error, results) => {
+  connection.query('SELECT user_id, name FROM users WHERE  email = $1 and password = crypt($2, password)', [email,password], (error, results) => {
     if (error) {
       throw error
     }
