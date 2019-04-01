@@ -9,7 +9,7 @@ block content
           h1= page
       .row.justify-content-center
         .col-lg-6
-          form(method='GET' action='/dashboard')
+          form(method='post' action='/login')
             .form-group
               label(for='userName') Username
               input#userName.form-control(type='text' placeholder='Username' name='username')
@@ -21,4 +21,4 @@ block content
               //input#exampleCheck1.form-check-input(type='checkbox')
               //label.form-check-label(for='exampleCheck1') Check me out
             //button.btn.red-btn(type='submit') Login
-            a.btn.red-btn(href='/dashboard') Login
+            button.btn.red-btn(type="submit") Login

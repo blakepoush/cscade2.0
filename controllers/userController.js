@@ -27,7 +27,8 @@ module.exports.usefulLinks = function(req, res, next) {
  * Login a User. (POST)
  */
 module.exports.login = function(req, res, next) {
-  //Implement 
+  //userModel.retrieveUser(req)
+  return req;
 }
 
 /**
