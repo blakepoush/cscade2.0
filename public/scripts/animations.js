@@ -1,3 +1,4 @@
+setInterval(function(){},500);
 function openNav() {
     if(document.documentElement.clientWidth > 450){
         document.getElementById("Sidenav").style.width = "250px";
