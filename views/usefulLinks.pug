@@ -1,11 +1,14 @@
 extends layout 
 
 block content
-  include mixins/announcement
+  include mixins/link
   .container
     .row
       .col  
         h1.text-center.mt-4= page
     .row.justify-content-center
-      .col-4
-        +announcement(null, "<a href='cscade.cs.astate.edu'>CSCADE</a>")
+      .col-sm-4
+        +link("Astate CS Page", "https://www.astate.edu/college/ecs/computer-science/")
+        +link("CS Wiki", "https://wiki.cs.astate.edu/index.php/Main_Page")
+        +link("C++ Reference", "https://en.cppreference.com/w/")
+        +link("Code Friday", "https://codefriday.cs.astate.edu/challenge")

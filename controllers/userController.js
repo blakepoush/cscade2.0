@@ -32,9 +32,7 @@ module.exports.login = function(req, res, next) {
     userModel.retrieveUser(req.body.username,req.body.password)
             .then(user => {
                 if(user.name === req.body.username){
-                    res.render('dashboard', {
-                      page: 'Dashboard'
-                     });
+                    res.render('dashboard', {page: 'Dashboard'});
                 }
                 else{
                     res.render('usefulLinks', {
@@ -50,6 +48,6 @@ module.exports.login = function(req, res, next) {
 /**
  * Logout a User. (POST)
  */
-module.exports.logout = function(req, rex, next) {
+module.exports.logout = function(req, res, next) {
   //Implement
 }
