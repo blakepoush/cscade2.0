@@ -29,7 +29,22 @@ module.exports.usefulLinks = function(req, res, next) {
  * Login a User. (POST)
  */
 module.exports.login = function(req, res, next) {
-  //Implement 
+    userModel.retrieveUser(req.body.username,req.body.password)
+            .then(user => {
+                if(user.name === req.body.username){
+                    res.render('dashboard', {
+                      page: 'Dashboard'
+                     });
+                }
+                else{
+                    res.render('usefulLinks', {
+                      page: user + req.body.username + req.body.username
+                     });
+                }
+            })
+            .catch(error =>{
+                console.log("error");
+            });
 }
 
 /**
