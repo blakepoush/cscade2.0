@@ -1,7 +1,11 @@
 extends layout 
 
 block content
+  include mixins/announcement
   .container
     .row
       .col  
         h1.text-center.mt-4= page
+    .row.justify-content-center
+      .col-4
+        +announcement(null, "<a href='cscade.cs.astate.edu'>CSCADE</a>")

@@ -18,6 +18,8 @@ module.exports.index = function(req, res, next) {
  */
 module.exports.usefulLinks = function(req, res, next) {
   //Check if user is logged in
+  
+  //pass view
   res.render('usefulLinks', {
     page: 'Useful Links'
    });
