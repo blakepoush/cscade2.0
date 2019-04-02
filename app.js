@@ -14,7 +14,7 @@ var assignmentRouter = require('./routes/assignments');
 
 // Start Express
 var app = express();
-//app.use(session());
+app.use(session({secret: "Secret Key"}));
 
 // View Engine Setup
 app.set('views', path.join(__dirname, 'views'));
