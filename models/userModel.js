@@ -7,8 +7,9 @@ const retrieveUser = async function(email, password) {
   //Use connection after the db is set up to retreive user information from the DB.
   //connection.query('SELECT user_id, name FROM users WHERE  email = $1 and password = crypt($2, password)', [email,password], (error, results) => {
   return connection.task('retrieveUser', function *(t) {
-        const user = yield t.one('SELECT user_id, name FROM users WHERE  email = $1 and password = $2', [email,password]);
-        return yield user;
+        const user = yield t.one('SELECT user_id, email FROM users WHERE  email = $1 and password = md5($2)', [email,password]);
+        console.log("retrieveUser: " + user.row);
+	return yield user;
     });
     /*
       var result = 5;
@@ -23,7 +24,7 @@ const retrieveUser = async function(email, password) {
         return result;
     */
 }
-retrieveUser('blake','password')
+retrieveUser('blake@gmail.com','password')
     .then(user => {
         console.log(user);
     })

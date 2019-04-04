@@ -52,7 +52,9 @@ module.exports.login = function(req, res, next) {
  
     userModel.retrieveUser(req.body.username,req.body.password)
             .then(user => {
-                if(user.name === req.body.username){
+		console.log("db: "+ user.email);
+		console.log("input: " + req.body.username);
+                if(user.email === req.body.username){
                     res.render('dashboard', {
                       page: 'Dashboard',
                       assignments: testData
@@ -60,7 +62,7 @@ module.exports.login = function(req, res, next) {
                 }
                 else{
                     res.render('usefulLinks', {
-                      page: user + req.body.username + req.body.username
+                      page: user + req.body.username + req.body.password
                      });
                 }
             })
