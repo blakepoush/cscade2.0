@@ -4,5 +4,5 @@ function servertime(){
     var d = new Date();
     time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     console.log(time);
-    document.getElementById("serverTime").html = time;
+    document.getElementById("serverTime").textContent = time;
 }
