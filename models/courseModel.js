@@ -5,7 +5,7 @@ var connection = require("./db.js");
  */
 const retrieveCourses_ofStudent  = async function(user_id) {
     return connection.task('retrieveCourses_ofStudent ', function *(t) {
-          const courses= yield t.any('Select courses.course_id, name, shortName From courses, enrolled where  student_id = $1 and courses.course_id = enrolled.course_id', [user_id]);
+          const courses= yield t.any('select * from courses where course_id IN (select course_id from enrolled where student_id = $1)', [user_id]);
           return yield courses;
       });
   }
@@ -21,3 +21,4 @@ const retrieveCourses_ofStudent  = async function(user_id) {
 module.exports = {
     retrieveCourses_ofStudent,
   }
+
