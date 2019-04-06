@@ -1,5 +1,5 @@
 /**
- * Courses Controller.
+ * Routes to course page.
  */
 
 var express = require('express');
