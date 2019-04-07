@@ -33,29 +33,29 @@ module.exports.usefulLinks = function(req, res, next) {
 module.exports.login = function(req, res, next) {
   var assignments = [];
     userModel.retrieveUser(req.body.username,req.body.password)
-            .then(user => {
-              // User Exists
-              console.log(user);
-              if(user.email === req.body.username){
-                  console.log(user.user_id);
-                  assignmentModel.retrieveUserAssignments(user.user_id)
-                  .then(assignments => {
-                    res.render('dashboard', {
-                      page: 'Dashboard',
-                      assignments: assignments
-                    });
-                  })
-                  .catch(error => {
-                    console.log("Retrieving Assignment Error");
-                  });
-              }
-            })
-            // User Entered In Incorrect Credentials
-            .catch(error =>{
-              res.render('usefulLinks', {
-                page: "Wrong Password"
-              });
-            });
+		.then(user => {
+			// User Exists
+			console.log(user);
+			if(user.email === req.body.username){
+				console.log(user.user_id);
+				assignmentModel.retrieveUserAssignments(user.user_id)
+					.then(assignments => {
+						res.render('dashboard', {
+							page: 'Dashboard',
+							assignments: assignments
+						});
+					})
+					.catch(error => {
+					console.log("Retrieving Assignment Error");
+			});
+		}
+	})
+	// User Entered In Incorrect Credentials
+	.catch(error =>{
+		res.render('usefulLinks', {
+		page: "Wrong Password"
+		});
+	});
 }
 
 /**
