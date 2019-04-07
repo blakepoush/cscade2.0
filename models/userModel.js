@@ -3,34 +3,13 @@ var connection = require("./db.js");
 /**
  * Retrieve a user from the DB.
  */
-const retrieveUser = async function(email, password) {
-  //Use connection after the db is set up to retreive user information from the DB.
-  //connection.query('SELECT user_id, name FROM users WHERE  email = $1 and password = crypt($2, password)', [email,password], (error, results) => {
-  return connection.task('retrieveUser', function *(t) {
-        const user = yield t.one('SELECT user_id, email FROM users WHERE  email = $1 and password = md5($2)', [email,password]);
-        console.log("retrieveUser: " + user.row);
-	return yield user;
+const retrieveUser = function(email, password) {
+    return connection.task('retrieveUser', function (t) {
+        const user = t.one('SELECT user_id, email FROM users WHERE  email = $1 and password = md5($2)', [email,password]);
+        console.log("retrieveUser: " + user);
+        return  user;
     });
-    /*
-      var result = 5;
-        try {
-            const users = await connection.one('SELECT user_id, name FROM users WHERE  email = $1 and password = $2', [email,password]);
-            result = users.rows
-        }
-        catch(e) {
-            throw e;
-        }
-        console.log("Query " + result);
-        return result;
-    */
 }
-retrieveUser('blake@gmail.com','password')
-    .then(user => {
-        console.log(user);
-    })
-    .catch(error =>{
-        console.log("error");
-    });
 
 
 
@@ -70,14 +49,6 @@ const retrieveStudent = async function(user_id) {
       });
   }
 
-  retrieveStudent(1)
-  .then(student => {
-      console.log(student[0]);
-  })
-  .catch(error =>{
-      console.log("error");
-  });
-
 /**
  * Retrieve instructor from the DB.
  */
@@ -88,31 +59,15 @@ const retrieveInstructor = async function(user_id) {
       });
   }
 
-  retrieveInstructor(13)
-  .then(instructor => {
-      console.log(instructor[0]);
-  })
-  .catch(error =>{
-      console.log("error");
-  });
-
 /**
  * Retrieve GA from the DB.
  */
 const retrieveGA = async function(user_id) {
     return connection.task('retrieveGA', function *(t) {
-          const GA= yield t.any('Select users.user_id, name, email From users, ga where  users.user_id = $1', [user_id]);
-          return yield GA;
-      });
-  }
-
-  retrieveGA(20)
-  .then(ga => {
-      console.log(ga[0]);
-  })
-  .catch(error =>{
-      console.log("error");
-  });
+        const GA= yield t.any('Select users.user_id, name, email From users, ga where  users.user_id = $1', [user_id]);
+        return yield GA;
+    });
+}
 
 module.exports = {
     retrieveUser,

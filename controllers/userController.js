@@ -3,6 +3,8 @@
  */
 
 var userModel = require('../models/userModel.js');
+var courseModel = require('../models/courseModel.js');
+var assignmentModel = require('../models/assignmentModel.js');
 
 /**
  * Retrieve Login Page. (GET)
@@ -29,45 +31,30 @@ module.exports.usefulLinks = function(req, res, next) {
  * Login a User. (POST)
  */
 module.exports.login = function(req, res, next) {
-  var testData = [
-    {
-        title: 'Singly Linked List',
-        due: '1/30/2019, 2:00pm',
-        submitted: true,
-        assignmentid: 'ssll'
-    },
-    {
-        title: 'Priority Queue',
-        due: '2/15/2019, 11:59pm',
-        submitted: false,
-        assignmentid: 'pqueue'
-    },
-    {
-        title: 'Huffman\'s Algorithm',
-        due: '03/01/2019, 2:00pm',
-        submitted: false,
-        assignmentid: 'huff'
-    }
-  ];
- 
+  var assignments = [];
     userModel.retrieveUser(req.body.username,req.body.password)
             .then(user => {
-		console.log("db: "+ user.email);
-		console.log("input: " + req.body.username);
-                if(user.email === req.body.username){
+              // User Exists
+              console.log(user);
+              if(user.email === req.body.username){
+                  console.log(user.user_id);
+                  assignmentModel.retrieveUserAssignments(user.user_id)
+                  .then(assignments => {
                     res.render('dashboard', {
                       page: 'Dashboard',
-                      assignments: testData
-		    });
-                }
-                else{
-                    res.render('usefulLinks', {
-                      page: user + req.body.username + req.body.password
-                     });
-                }
+                      assignments: assignments
+                    });
+                  })
+                  .catch(error => {
+                    console.log("Retrieving Assignment Error");
+                  });
+              }
             })
+            // User Entered In Incorrect Credentials
             .catch(error =>{
-                console.log("error");
+              res.render('usefulLinks', {
+                page: "Wrong Password"
+              });
             });
 }
 

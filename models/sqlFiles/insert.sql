@@ -1,24 +1,24 @@
 
 -- users (students)
 INSERT INTO users (user_id, name, password, email)
-  VALUES (1,'Ariana Garcia', crypt('ari12', gen_salt('md5')), 'ariana.garcia@smail.astate.edu'), (2,'Samuel Reagan', crypt('sammy', gen_salt('md5')), 'samuel.reagan@smail.astate.edu'),
-		 (3,'Blake Poush', crypt('blake10', gen_salt('md5')), 'blake.poush@smail.astate.edu'),(4,'Hunter Ingle', crypt('hingle', gen_salt('md5')), 'hunter.ingle@smail.astate.edu'),
-         (5,'Andrew Lee', crypt('lee13', gen_salt('md5')), 'andrew.lee@smail.astate.edu'), (6,'Thomas Green', crypt('green23', gen_salt('md5')), 'thomas.green@smail.astate.edu');
+  VALUES (1,'Ariana Garcia', md5('ari12'), 'ariana.garcia@smail.astate.edu'), (2,'Samuel Reagan', md5('sammy'), 'samuel.reagan@smail.astate.edu'),
+		 (3,'Blake Poush', md5('blake10'), 'blake.poush@smail.astate.edu'),(4,'Hunter Ingle', md5('hingle'), 'hunter.ingle@smail.astate.edu'),
+         (5,'Andrew Lee', md5('lee13'), 'andrew.lee@smail.astate.edu'), (6,'Thomas Green', md5('green23'), 'thomas.green@smail.astate.edu');
          
 
 -- users (instructors)
 INSERT INTO users (user_id, name, password, email)
-  VALUES (13,'Joel Adams', crypt('adams11', gen_salt('md5')), 'joel.adams@astate.edu'), (14,'Sandy Moore', crypt('moore12', gen_salt('md5')), 'sandy.moore@astate.edu'),
-		 (15,'Noah Williams', crypt('noah11', gen_salt('md5')), 'noah.williams@astate.edu'), (16,'Ryan Scott', crypt('scott12', gen_salt('md5')), 'ryan.scott@astate.edu'),
-         (17,'Isaac Green', crypt('green13', gen_salt('md5')), 'isaac.green@astate.edu');
+  VALUES (13,'Joel Adams', md5('adams11'), 'joel.adams@astate.edu'), (14,'Sandy Moore', md5('moore12'), 'sandy.moore@astate.edu'),
+		 (15,'Noah Williams', md5('noah11'), 'noah.williams@astate.edu'), (16,'Ryan Scott', md5('scott12'), 'ryan.scott@astate.edu'),
+         (17,'Isaac Green', md5('green13'), 'isaac.green@astate.edu');
  
  -- users (GA) 
 INSERT INTO users (user_id, name, password, email)
-  VALUES (7,'Kimi Lee', crypt('lee43', gen_salt('md5')), 'kimi.lee@smail.astate.edu'), (8,'Grace Bill', crypt('grace24', gen_salt('md5')), 'grace.bill@smail.astate.edu'),
-         (9,'Jamie Webb', crypt('web73', gen_salt('md5')), 'jamie.webb@smail.astate.edu'), (10,'Rodney Smith', crypt('rod34', gen_salt('md5')), 'rodney.smith@smail.astate.edu'),
-         (11,'Samantha Moore', crypt('sam24', gen_salt('md5')), 'samantha.moore@smail.astate.edu'), (12,'Clay Tucker', crypt('tucker23', gen_salt('md5')), 'clay.tucker@smail.astate.edu'),
-		 (18,'Aaron Adams', crypt('aaron11', gen_salt('md5')), 'aaron.adams.smith@smail.astate.edu'), (19,'Lucy Smith', crypt('smith13', gen_salt('md5')), 'lucy.smith@smail.astate.edu'),
-         (20,'Jack Hill', crypt('jack12', gen_salt('md5')), 'jack.hill@astate.edu');
+  VALUES (7,'Kimi Lee', md5('lee43'), 'kimi.lee@smail.astate.edu'), (8,'Grace Bill', md5('grace24'), 'grace.bill@smail.astate.edu'),
+         (9,'Jamie Webb', md5('web73'), 'jamie.webb@smail.astate.edu'), (10,'Rodney Smith', md5('rod34'), 'rodney.smith@smail.astate.edu'),
+         (11,'Samantha Moore', md5('sam24'), 'samantha.moore@smail.astate.edu'), (12,'Clay Tucker', md5('tucker23'), 'clay.tucker@smail.astate.edu'),
+		 (18,'Aaron Adams', md5('aaron11'), 'aaron.adams.smith@smail.astate.edu'), (19,'Lucy Smith', md5('smith13'), 'lucy.smith@smail.astate.edu'),
+         (20,'Jack Hill', md5('jack12'), 'jack.hill@astate.edu');
 
 -- students (users 1-6)
 INSERT INTO student (user_id, student_id)

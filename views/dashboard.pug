@@ -9,7 +9,7 @@ block content
     .row   
       .col-5
         each item in assignments
-            +assignment(item.title,item.due,item.submitted,item.assignmentid)
+            +assignment(item.title,item.duedate,true,item.assignment_id)
       .col-2
       .col-5
         +announcement(null,"Nucor will be presenting at 12:30pm in CSM212")
