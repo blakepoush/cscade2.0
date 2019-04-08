@@ -10,5 +10,6 @@ var courseController = require("../controllers/courseController");
 
 // Get Courses Page
 router.get('/', courseController.index);
+router.get('/getAssignments/:courseId', courseController.getAssignments);
 
 module.exports = router;
