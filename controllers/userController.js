@@ -31,7 +31,6 @@ module.exports.usefulLinks = function(req, res, next) {
  * Login a User. (POST)
  */
 module.exports.login = function(req, res, next) {
-  var assignments = [];
     userModel.retrieveUser(req.body.username,req.body.password)
 		.then(user => {
 			// User Exists

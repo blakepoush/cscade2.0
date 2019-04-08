@@ -12,9 +12,9 @@ block content
           option(selected="selected" disabled="disabled") Select Course
           each course in courses
               option.dropdown-item(href='#' value=course.course_id)= course.name
-    .row  
+    .row.mb-4  
       .col
-        h2 Java Application Development
+        h2#courseHeader
     .row   
       .col-lg-5.mb-4#assignmentContainer
       .col-lg-2
