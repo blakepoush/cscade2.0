@@ -43,3 +43,12 @@ function ajaxRequest(method, path, data, success, fail) {
     }
   };
 }
+
+function dismissAlerts() {
+  var alerts = document.getElementsByClassName('cscadeAlert');
+  for(var i = 0; i < alerts.length; i++) {
+    alerts[i].style.display = "none";
+  }
+}
+
+setTimeout(dismissAlerts, 5000);

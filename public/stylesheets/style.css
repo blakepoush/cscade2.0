@@ -16,7 +16,7 @@ nav{
 .sidenav {
   height: 100%;
   width: 0; 
-  position: fixed; 
+  position: fixed;  
   z-index: 1; 
   top: 0; 
   left: 0;
@@ -101,13 +101,23 @@ nav{
   color: var(--cscade-red);
 }
 
+.text-red {
+  color: var(--cscade-red);
+}
+
+.red-link {
+  color: var(--cscade-red);
+}
+
+.red-link:hover {
+  color: var(--cscade-red);
+}
+
 .card{
   background: var(--cscade-red) !important;
   color: white;
   min-height: 104px;
 }
-
-
 
 .assignment i{
   font-size: 35px;
@@ -123,4 +133,14 @@ nav{
 
 .usefulLink:hover {
   color: #fff;
+}
+
+.cscadeAlert {
+  border: 2px solid var(--cscade-red);
+  border-image: initial;
+  border-radius: 0.25rem;
+  color: var(--cscade-red);
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.25rem;
+  position: relative;
 }

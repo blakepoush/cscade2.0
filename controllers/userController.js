@@ -11,7 +11,7 @@ var assignmentModel = require('../models/assignmentModel.js');
  */
 module.exports.index = function(req, res, next) {
   res.render('login', {
-    page: 'Student Login'
+		page: 'Student Login'
    });
 };
 
@@ -52,8 +52,9 @@ module.exports.login = function(req, res, next) {
 	})
 	// User Entered In Incorrect Credentials
 	.catch(error =>{
-		res.render('usefulLinks', {
-		page: "Wrong Password"
+		res.render('login', {
+			page: "Student Login",
+			error: "Username and password don't match any accounts."
 		});
 	});
 }

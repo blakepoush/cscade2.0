@@ -1,3 +1,5 @@
+var courseModel = require('../models/courseModel.js');
+
 /**
  * Get the Assignments Page.
  */
@@ -22,8 +24,12 @@ module.exports.index = function(req, res, next) {
         assignmentid: 'huff'
     }
   ];
-  res.render('assignments', {
-    page: 'Assignments',
-    assignments: testData
-   });
+  courseModel.retrieveCourses_ofStudent(1)
+    .then(courses => {
+      res.render('assignments', {
+        page: 'Assignments',
+        courses: courses,
+        assignments: testData
+       });
+    })
 }
