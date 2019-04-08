@@ -1,0 +1,4 @@
+Requirements
+- Raw Java
+- No Libraries
+- No Code from Online Resources
