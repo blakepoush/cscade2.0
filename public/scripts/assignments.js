@@ -12,4 +12,18 @@ function getAssignments() {
 function insertAssignments(data) {
   console.log(data);
   document.getElementById("assignmentContainer").innerHTML = data;
+  addEvent();
+  //setTimeout(addEvent, 1000);
+}
+
+function addEvent() {
+  let events = document.getElementsByClassName("assignmentInfo");
+  console.log(events);
+  for(var i = 0; i < events.length; i++) {
+    events[i].addEventListener("click", getAssignmentInfo);
+  }
+}
+
+function getAssignmentInfo() {
+  alert("hi");
 }
