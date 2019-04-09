@@ -1,0 +1,27 @@
+mixin assignmentPreview(title,due,description,id,points,submitted,feedback)
+    .col-lg-5.mb-4
+        h3  #{title}
+        hr
+        div Due: #{due}
+        div #{description}
+        div 
+            a.red-link(href=`uploads/assignmentInfoUploads/${id}` target="_blank") Materials
+        div
+            strong Points Possible: 
+            span #{points}
+        div
+            strong Submitted Files: 
+            span #{submitted}
+        div
+            strong Feedback: 
+            if(feedback)    
+                span #{feedback}
+            else
+                span None    
+        form.mt-2(method="GET" action="/")
+            .form-row
+            .col
+                input.form-control-file(type="file" placeholder="Upload Files..." required)
+            .form-row.mt-2
+            .col
+                button.btn.red-btn.mt-2(type="submit") Submit

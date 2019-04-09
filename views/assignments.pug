@@ -2,42 +2,17 @@ extends layout
 
 block content
   include mixins/assignment
+  include mixins/dropdown
+  include mixins/assignmentPreview
   .container
     .row
       .col-lg  
         h1.text-center.mt-4= page
-    .row.mb-4
-      .col-lg.text-center
-        select.form-control#courseSelect
-          option(selected="selected" disabled="disabled") Select Course
-          each course in courses
-              option.dropdown-item(href='#' value=course.course_id)= course.name
+    +dropdown(courses)
     .row.mb-4  
       .col
         h2#courseHeader
     .row   
       .col-lg-5.mb-4#assignmentContainer
       .col-lg-2
-      .col-lg-5.mb-4
-        h3  Singly Linked List
-        hr
-        div Due: 01/23/19
-        div Create a Singly Linked List using Java
-        div 
-          a.red-link(href="uploads/assignmentInfoUploads/linkedlist.txt" target="_blank") Materials
-        div
-          strong Points Possible: 
-          span 20
-        div
-          strong Submitted Files: 
-          span None
-        div
-          strong Feedback: 
-          span None
-        form.mt-2(method="GET" action="/")
-          .form-row
-            .col
-              input.form-control-file(type="file" placeholder="Upload Files..." required)
-          .form-row.mt-2
-            .col
-              button.btn.red-btn.mt-2(type="submit") Submit
+      +assignmentPreview('a','a','a',4,'a','a','a')
