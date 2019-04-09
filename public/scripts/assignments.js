@@ -13,7 +13,6 @@ function insertAssignments(data) {
   console.log(data);
   document.getElementById("assignmentContainer").innerHTML = data;
   addEvent();
-  //setTimeout(addEvent, 1000);
 }
 
 function addEvent() {

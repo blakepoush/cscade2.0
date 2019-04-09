@@ -5,16 +5,25 @@ var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var pgSession = require('connect-pg-simple')(session);
+var db = require("./models/db.js");
 
 // Retrieve Routers
 var indexRouter     = require('./routes');
-var dashboardRouter = require('./routes/dashboard');
 var courseRouter     = require('./routes/courses');
 var assignmentRouter = require('./routes/assignments');
 
 // Start Express
 var app = express();
-//app.use(session({secret: "Secret Key"}));
+app.use(session({
+  store: new pgSession({
+    pgPromise: db
+  }),
+  secret: 'adfklg74naKAJSDfe32df!',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+}));
 
 // View Engine Setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // User Routers
 app.use('/', indexRouter);
-app.use('/dashboard', dashboardRouter);
 app.use('/courses', courseRouter);
 app.use('/assignments', assignmentRouter);
 

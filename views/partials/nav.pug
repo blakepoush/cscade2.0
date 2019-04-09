@@ -9,6 +9,7 @@ nav.navbar.navbar-dark
   a(href='/assignments' class=(page === "Assignments") ? 'active': '') Assignments
   a(href='/grades' class=(page === "Grades") ? 'active': '') Grades
   a(href='/usefulLinks' class=(page === "Useful Links") ? 'active': '') Useful Links
-  a(href='/') Logout
+  form(method='POST' action='/')
+    button(type='submit') Logout
   span#serverTime HH:MM:SS AM
 

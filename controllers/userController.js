@@ -12,7 +12,7 @@ var assignmentModel = require('../models/assignmentModel.js');
 module.exports.index = function(req, res, next) {
   res.render('login', {
 		page: 'Student Login'
-   });
+	});
 };
 
 /**
@@ -20,11 +20,16 @@ module.exports.index = function(req, res, next) {
  */
 module.exports.usefulLinks = function(req, res, next) {
   //Check if user is logged in
-  
-  //pass view
-  res.render('usefulLinks', {
-    page: 'Useful Links'
-   });
+  if(req.session.user) {
+		res.render('usefulLinks', {
+			page: 'Useful Links'
+		 });
+	} else {
+		res.render('login', {
+			page: 'Student Login',
+			error: "You must be logged in to access this page."
+		});
+	}	
 }
 
 /**
@@ -39,6 +44,7 @@ module.exports.login = function(req, res, next) {
 				console.log(user.user_id);
 				assignmentModel.retrieveUserAssignments(user.user_id)
 					.then(assignments => {
+						req.session.user = user;
 						res.render('dashboard', {
 							page: 'Dashboard',
 							assignments: assignments
@@ -62,5 +68,30 @@ module.exports.login = function(req, res, next) {
  * Logout a User. (POST)
  */
 module.exports.logout = function(req, res, next) {
-  //Implement
+  req.session.destroy(() => {
+		res.render('login', {
+			page: "Student Login",
+			success: "Logout Success"
+		});
+	});
+}
+
+module.exports.getDashboard = function(req, res, next) {
+	if(req.session.user) {
+    assignmentModel.retrieveUserAssignments(req.session.user.user_id)
+      .then(assignments => {
+        res.render('dashboard', {
+          page: 'Dashboard',
+          assignments: assignments
+        });
+      })
+      .catch(error => {
+        console.log("Retrieving Assignment Error");
+			});
+  } else {
+		res.render('login', {
+			page: 'Student Login',
+			error: "You must be logged in to access this page."
+		});
+	}
 }

@@ -8,14 +8,12 @@ var router  = express.Router();
 var userController = require("../controllers/userController");
 
 /** GET Requests **/
-
-// Login Page
-router.get('/', userController.index);
-// Useful Links
-router.get('/usefulLinks', userController.usefulLinks);
-
+router.get('/', userController.index);                  // Get Login Page
+router.get('/usefulLinks', userController.usefulLinks); // Useful Links
+router.get('/dashboard', userController.getDashboard);  // Get Dashboard
+ 
 /** POST Requests */
-router.post('/login', userController.login);
-router.post('/logout', userController.logout);
+router.post('/dashboard', userController.login);        // Log In
+router.post('/', userController.logout);                // Log Out
 
 module.exports = router;
