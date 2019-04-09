@@ -21,6 +21,7 @@ module.exports.index = function(req, res, next) {
 module.exports.usefulLinks = function(req, res, next) {
   //Check if user is logged in
   if(req.session.user) {
+		res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 		res.render('usefulLinks', {
 			page: 'Useful Links'
 		 });
@@ -45,6 +46,7 @@ module.exports.login = function(req, res, next) {
 				assignmentModel.retrieveUserAssignments(user.user_id)
 					.then(assignments => {
 						req.session.user = user;
+						res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 						res.render('dashboard', {
 							page: 'Dashboard',
 							assignments: assignments
@@ -80,6 +82,7 @@ module.exports.getDashboard = function(req, res, next) {
 	if(req.session.user) {
     assignmentModel.retrieveUserAssignments(req.session.user.user_id)
       .then(assignments => {
+				res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
         res.render('dashboard', {
           page: 'Dashboard',
           assignments: assignments

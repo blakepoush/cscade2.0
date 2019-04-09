@@ -152,3 +152,13 @@ account_id int not null references accounts(account_id),
 admin_id		    int references administrator(user_id),
 primary key(account_id)
 );
+
+-- Create Session Table (connect-pg-simple)
+    
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
