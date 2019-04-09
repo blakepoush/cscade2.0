@@ -11,14 +11,17 @@ mixin assignmentPreview(title,due,description,id,points,submitted,feedback)
             span #{points}
         div
             strong Submitted Files: 
-            span #{submitted}
+            if(submitted)    
+                span #{submitted}
+            else
+                span None
         div
             strong Feedback: 
             if(feedback)    
                 span #{feedback}
             else
                 span None    
-        form.mt-2(method="GET" action="/")
+        form.mt-2.no-gutters(method="GET" action="/")
             .form-row
             .col
                 input.form-control-file(type="file" placeholder="Upload Files..." required)
