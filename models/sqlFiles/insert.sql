@@ -89,71 +89,71 @@ INSERT INTO notes (note_id, name, description, filePath)
               (34,'Review Day', 'Review Day for Final April 27',null);
        
        
-INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoints, dueDate, dueTime)
+INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoints, dueDate)
 	   VALUES -- Structured Programming
-			  (1,'Homework 1', 'hw','I/O (Input/Output)', '', 25, '2019-04-6', '24:00:00'),
-              (2,'Homework 2', 'hw','Selection', '', 100, '2019-04-15', '24:00:00'),
-              (3,'Test 1', 'test','test over chapters 1-3', null, 100, '2019-04-20', '12:30:00'),
+			        (1,'Homework 1', 1,'I/O (Input/Output)', '', 25, '2019-04-6'),
+              (2,'Homework 2', 1,'Selection', '', 100, '2019-04-15'),
+              (3,'Test 1', 2,'test over chapters 1-3', null, 100, '2019-04-20'),
               
               -- OOP
-              (4,'Homework 1', 'hw','Singly-Linked List', '', 25, '2019-04-6', '24:00:00'),
-              (5,'Quiz 1', 'quiz','Inheritance', null, 10, '2019-04-7', '2:30:00'),
-              (6,'Exam 1', 'exam','Exam on April 16', null, 100, '2019-04-16', '2:30:00'),
+              (4,'Homework 1', 1,'Singly-Linked List', '', 25, '2019-04-6'),
+              (5,'Quiz 1', 3,'Inheritance', null, 10, '2019-04-7'),
+              (6,'Exam 1', 2,'Exam on April 16', null, 100, '2019-04-16'),
               
               -- ADV data structures
-              (7,'Quiz 1', 'quiz','Quiz: skip list', null, 10, '2019-04-5', '1:30:00'),
-              (8,'Homework 1', 'hw','implement skip list', '', 25, '2019-04-8', '24:00:00'),
-              (9,'Exam 1', 'exam','Exam on April 20', null, 100, '2019-04-20', '1:30:00'),
+              (7,'Quiz 1', 3,'Quiz: skip list', null, 10, '2019-04-5'),
+              (8,'Homework 1', 1,'implement skip list', '', 25, '2019-04-8'),
+              (9,'Exam 1', 2,'Exam on April 20', null, 100, '2019-04-20'),
               
               -- Programming Languages
-              (10,'Assignment 1', 'hw','Review Questions Chapter 1: 1,2,7,8,13,14,15,17,23;', null, 25, '2019-04-5', '24:00:00'),
-              (11,'Assignment 2', 'hw','Review Questions Chapter 2: 3,7,12,15,18,25,26,27,30,31,35;', null, 25, '2019-04-8', '24:00:00'),
-              (12,'Exam 1', 'exam','Exam on April 10', null, 100, '2019-04-10', '1:00:00'),
+              (10,'Assignment 1', 1,'Review Questions Chapter 1: 1,2,7,8,13,14,15,17,23;', null, 25, '2019-04-5'),
+              (11,'Assignment 2', 1,'Review Questions Chapter 2: 3,7,12,15,18,25,26,27,30,31,35;', null, 25, '2019-04-8'),
+              (12,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
               
               -- Operating Systems
-              (13,'Assignment 1', 'hw','Review Questions', null, 25, '2019-04-7', '24:00:00'),
-              (14,'Exam 1', 'exam','Exam on April 10', null, 100, '2019-04-10', '3:00:00'),
+              (13,'Assignment 1', 1,'Review Questions', null, 25, '2019-04-7'),
+              (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
               
               -- Java App dev
-			  (15,'Homework 1', 'hw_quiz',null, '', 30, '2019-04-20', '22:00:00'),
-              (16,'Quiz 1', 'hw_quiz','Quiz on April 21', null, 5, '2019-04-21', '12:30:00'),
-			  (17,'Exam 1', 'exam','Exam on April 23', null, 100, '2019-04-23', '12:30:00'),
+			        (15,'Homework 1', 1,null, '', 30, '2019-04-20'),
+              (16,'Quiz 1', 3,'Quiz on April 21', null, 5, '2019-04-21'),
+			        (17,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
               
               -- Computer Networks
-			  (18,'Homework 1', 'hw','Implement Echo & Time Server over TCP', null, 100, '2019-04-19', '22:00:00'),
-              (19,'Homework 2', 'hw','Local DNS server over UDP', null, 100, '2019-04-22', '22:00:00'),
-              (20,'Exam 1', 'exam','Exam on April 23', null, 100, '2019-04-23', '8:00:00'),
+			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-19'),
+              (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-04-22'),
+              (20,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
        
 			  -- Computer Graphics
-			  (21,'01 a: Line pixel error', 'homework','Read (x,y) for two points from keyboard; display initial error, delta error for increments 
+			  (21,'01 a: Line pixel error', 1,'Read (x,y) for two points from keyboard; display initial error, delta error for increments 
 				and for no increments. Then loop to display (x, y) and associated error for each pixel between the two points.
-				(See pdf for example display.)', null, 25, '2019-04-16', '24:00:00'),
-			  (22,'01 b: line with dx > 0, dy > 0, dx > dy', 'homework','Get two endpoints with dx > 0, dy > 0, and dx > dy; print same table as 01 a 
-				and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-17', '24:00:00'),
-			  (23,'01 c: line with dx > 0, dy > 0 and dy > dx', 'homework','Get two endpoints with dx > 0, dy > 0, and dx < dy; print same table as 01
-				a and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-18', '24:00:00'),
-			  (24,'01 d: all 16 possible lines', 'homework','Get start point from user and draw in 16 directions, +/- 100 and +/- 50. Assume "500x500.bmp"
-				in current directory.', null, 25, '2019-04-18', '24:00:00'),
-			  (25,'02 a: circle pixel error', 'Homework', 'Read (x,y) for center point and radius from keyboard; display initial error. Then loop to display (x, y), 
-				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-19', '24:00:00'),
+				(See pdf for example display.)', null, 25, '2019-04-16'),
+			  (22,'01 b: line with dx > 0, dy > 0, dx > dy', 1,'Get two endpoints with dx > 0, dy > 0, and dx > dy; print same table as 01 a 
+				and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-17'),
+			  (23,'01 c: line with dx > 0, dy > 0 and dy > dx', 1,'Get two endpoints with dx > 0, dy > 0, and dx < dy; print same table as 01
+				a and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-18'),
+			  (24,'01 d: all 16 possible lines', 1,'Get start point from user and draw in 16 directions, +/- 100 and +/- 50. Assume "500x500.bmp"
+				in current directory.', null, 25, '2019-04-18'),
+			  (25,'02 a: circle pixel error', 1, 'Read (x,y) for center point and radius from keyboard; display initial error. Then loop to display (x, y), 
+				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-19'),
 				
                -- Mobile App dev 
-			  (26,'Meeting 1', 'meeting','Review over App Design', null, 100, '2019-04-18', '9:30:00'),
-			  (27,'Meeting 2', 'meeting','Discuss your progress with your app.', null, 100, '2019-04-20', '10:00:00'),
-			  (28,'Presentation', 'presentation','Presentation', null, 100, '2019-04-29', '9:30:00'),
+			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-04-18'),
+			  (27,'Meeting 2', 4,'Discuss your progress with your app.', null, 100, '2019-04-20'),
+			  (28,'Presentation', 5,'Presentation', null, 100, '2019-04-29'),
               
               -- Automata Theory
-              (29,'Exam 1', 'exam','Exam on April 15', null, 100, '2019-04-15', '9:00:00'),
-			  (30,'Final Exam', 'hw','Final Exam on April 30', null, 100, '2019-04-30', '9:00:00');
+              (29,'Exam 1', 2,'Exam on April 15', null, 100, '2019-04-15'),
+			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-04-30');
        
        
 -- courses
 INSERT INTO courses (course_id, name, shortName)
   VALUES (2114,'CS 2114: Structured Programming & lab','Structured Programming'),
-		 (2124,'CS 2124: OOP & Fund Data Structures & lab','OOP & Fund Data Structures'),
+		     (2124,'CS 2124: OOP & Fund Data Structures & lab','OOP & Fund Data Structures'),
          (3113,'CS 3113: Algorithms & Adv Data Structures','Algorithms & Adv Data Structures'),
          (3123,'CS 3123: Programming Languages', 'Programming Languages'), 
-		 (3233,'CS 3233: Operating Systems','Operating Systems'),
+		     (3233,'CS 3233: Operating Systems','Operating Systems'),
          (4143,'CS 4143: Java Application Development','Java Application Development'),
          (4313,'CS 4/5313: Computer Networks','Computer Networks'),
          (4413,'CS 4/5413: Fundamental Computer Graphics','Fundamental Computer Graphics'),
@@ -163,7 +163,7 @@ INSERT INTO courses (course_id, name, shortName)
 -- instructor of each course
 INSERT INTO teaches (course_id, instructor_id)
 	   VALUES (2114, 13), -- instructor 13 () teaches structured programming
-			  (2124, 13), -- instructor 13 () teaches OOP
+			        (2124, 13), -- instructor 13 () teaches OOP
               (3113, 14), -- instructor 14 () teaches Algorithms and adv data structures
               (3123, 15), -- instructor 15 () teaches programming languages
               (3233, 16), -- instructor 16 () teaches operating systems
@@ -192,15 +192,15 @@ INSERT INTO enrolled(course_id, student_id)
 	   VALUES (4143,1), (4313,1), (4413,1), (4723,1),   			-- student 1 () is enrolled in Java App Dev, computer Networks, fund. comp. graphics, Automata Theory 
               (4613,2), (4143,2), (4313, 2), (4413, 2),             -- student 2 () is enrolled in Mobile App Dev., Java App Dev, Computer Networks, Fund. comp. graphics
               (2124,3), (3113,3), (3123,3), (3233, 3), (4613,3),	-- student 3 () is enrolled in OOP, Algorithms and Adv Data Structures, programming languages, operating systems, mobile app dev
-			  (4723,4), (4313,4), (4413,4), (4143, 4),				-- student 4 () is enrolled in Automata Theory, computer networks, Fund. comp. graphics, Java App Dev
-			  (2124,5), (3113, 5),(3123,5), (3233,5), (4413, 5), 	-- student 5 () is enrolled in OOP, algorithms and Adv data structures, programming languages, operating systems, fund. comp. graphics
+			        (4723,4), (4313,4), (4413,4), (4143, 4),				-- student 4 () is enrolled in Automata Theory, computer networks, Fund. comp. graphics, Java App Dev
+			        (2124,5), (3113, 5),(3123,5), (3233,5), (4413, 5), 	-- student 5 () is enrolled in OOP, algorithms and Adv data structures, programming languages, operating systems, fund. comp. graphics
               (2114, 6);                                            -- student 6 () is enrolled in structured programming 
               
               
 -- course notes              
 INSERT INTO course_notes (note_id, course_id)
 	   VALUES (1, 2114), (2, 2114), (3, 2114), (4, 2114),
-			  (5, 2124), (6, 2124), (7, 2124), (8, 2124),
+			        (5, 2124), (6, 2124), (7, 2124), (8, 2124),
               (9, 3113), (10, 3113), (11, 3113),
               (12, 3123), (13, 3123), (14, 3123),
               (15, 3233), (16, 3233), (17, 3233),
@@ -213,7 +213,7 @@ INSERT INTO course_notes (note_id, course_id)
 -- course assignments       
 INSERT INTO course_assignments(assignment_id, course_id)
 	   VALUES (1, 2114), (2, 2114), (3, 2114),
-			  (4, 2124), (5, 2124), (6, 2124),
+			        (4, 2124), (5, 2124), (6, 2124),
               (7, 3113), (8, 3113), (9, 3113),
               (10, 3123), (11, 3123), (12, 3123),
               (13, 3233), (14, 3233), 
@@ -261,6 +261,33 @@ INSERT INTO instructor_create_assignment(assignment_id, instructor_id)
               (23, 14), (24, 14), (25, 14),
               (26, 15), (27, 15), (28, 15),
               (29, 15), (30, 15);
-              
+          
+-- submitted assignments
+-- INSERT INTO submitted_assignments(student_id, assignment_id, filePath, grade)
+      -- VALUES ()
+
 -- Grades
-              
+INSERT INTO course_assignment_types(type_id, course_id, type, weight)
+      VALUES (1, 2114, 'homework', 25),  (2, 2114,'Exam', 30),  (3, 2114,'Attendance', 15),  (4, 2114,'Final Exam', 30),                                  -- weights for structured programming
+                    (1, 2124, 'homework', 25),  (2, 2124,'Exam', 25), (3, 2124,'Quiz', 10), (4, 2124,'Attendance', 10),  (5, 2124,'Final Exam', 30),  -- weights for OOP
+                    (1, 3113, 'homework', 25),  (2, 3113,'Exam', 20), (3, 3113,'Quiz', 10), (4, 3113,'Attendance', 15),  (5, 3113,'Final Exam', 30),  -- weights for adv data structures
+                    (1, 3123, 'homework', 35),  (2, 3123,'Exam', 25), (3, 3123,'Attendance', 10),  (4, 3123,'Final Exam', 30),                                 -- weights for programming languages
+                    (1, 3233, 'homework', 25),  (2, 3233,'Exam', 30), (3, 3233,'Attendance', 15),  (4, 3233,'Final Exam', 30),                                 -- weights for Operating Systems
+                    (1, 4143, 'homework', 25),  (2, 4143,'Exam', 25), (3, 4143,'Quiz', 10), (4, 4143,'Attendance', 10),  (5, 4143,'Final Exam', 30), -- weights for Java app
+                    (1, 4313, 'homework', 25),  (2, 4313,'Exam', 30), (3, 4313,'Attendance', 15),  (4, 4313,'Final Exam', 30),                                 -- weights for computer networks
+                    (1, 4413, 'homework', 25),  (2, 4413,'Exam', 30), (3, 4413,'Attendance', 15),  (4, 4413,'Final Exam', 30),                                 -- weights for computer graphics
+                    (4, 4613, 'meeting', 75),  (5, 4613,'presentation', 25),                                                                                                                   -- weights for Mobile app
+                    (1, 4723, 'homework', 25),(2, 4723, 'Exam', 30),  (3, 4723,'Final Exam', 30), (4, 4723,'Attendance', 15);                                  -- weights for Automata Theory
+
+
+-- announcements
+INSERT INTO announcements(id, body, dateExpired)
+      VALUES  
+      (1, 'The Association for Computing Machinery (ACM) student group will meet this
+      Friday, April 26 at 12:00pm in CSM 211 during {code|friday}.
+      Everyone is invited to attend.  Come participate in your CS student club!','2019-04-26' );
+
+
+-- useful links
+INSERT INTO useful_links(name, link)
+      VALUES ('Student Advising', 'https://wiki.cs.astate.edu/index.php/Student/Advising');
