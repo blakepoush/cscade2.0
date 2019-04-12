@@ -5,7 +5,8 @@ var connection = require("./db.js");
  */
 const retrieveUsefulLinks  = function() {
     return connection.task('retrieveUsefulLinks ', function *(t) {
-        const links = t.any('select * from useful_links;');
+        const links = t.any('select *' + 
+        'from useful_links;');
         return links;
     });
 }

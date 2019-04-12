@@ -115,35 +115,35 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
               
               -- Java App dev
-			        (15,'Homework 1', 1,null, '', 30, '2019-04-20'),
+			        (15,'Homework 1', 1,null, '', 30, '2019-04-08'),
               (16,'Quiz 1', 3,'Quiz on April 21', null, 5, '2019-04-21'),
 			        (17,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
               
               -- Computer Networks
-			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-19'),
+			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-9'),
               (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-04-22'),
               (20,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
        
 			  -- Computer Graphics
 			  (21,'01 a: Line pixel error', 1,'Read (x,y) for two points from keyboard; display initial error, delta error for increments 
 				and for no increments. Then loop to display (x, y) and associated error for each pixel between the two points.
-				(See pdf for example display.)', null, 25, '2019-04-16'),
+				(See pdf for example display.)', null, 25, '2019-04-12'),
 			  (22,'01 b: line with dx > 0, dy > 0, dx > dy', 1,'Get two endpoints with dx > 0, dy > 0, and dx > dy; print same table as 01 a 
-				and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-17'),
+				and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-13'),
 			  (23,'01 c: line with dx > 0, dy > 0 and dy > dx', 1,'Get two endpoints with dx > 0, dy > 0, and dx < dy; print same table as 01
-				a and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-18'),
+				a and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-14'),
 			  (24,'01 d: all 16 possible lines', 1,'Get start point from user and draw in 16 directions, +/- 100 and +/- 50. Assume "500x500.bmp"
-				in current directory.', null, 25, '2019-04-18'),
+				in current directory.', null, 25, '2019-04-15'),
 			  (25,'02 a: circle pixel error', 1, 'Read (x,y) for center point and radius from keyboard; display initial error. Then loop to display (x, y), 
-				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-19'),
+				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-16'),
 				
                -- Mobile App dev 
-			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-04-18'),
+			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-04-5'),
 			  (27,'Meeting 2', 4,'Discuss your progress with your app.', null, 100, '2019-04-20'),
 			  (28,'Presentation', 5,'Presentation', null, 100, '2019-04-29'),
               
               -- Automata Theory
-              (29,'Exam 1', 2,'Exam on April 15', null, 100, '2019-04-15'),
+              (29,'Exam 1', 2,'Exam on April 15', null, 100, '2019-03-08'),
 			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-04-30');
        
        
@@ -176,7 +176,7 @@ INSERT INTO teaches (course_id, instructor_id)
 -- ga of each course
 INSERT INTO assistant (course_id, ga_id)
 	   VALUES (2114, 18), -- ga 18 () structured programming
-			  (2124, 19), -- ga 19 () OOP
+			        (2124, 19), -- ga 19 () OOP
               (3113, 20), -- ga 20 () Algorithms and adv data structures
               (3123, 7),  -- ga 7  () programming languages
               (3233, 8),  -- ga 8  () operating systems
@@ -189,12 +189,12 @@ INSERT INTO assistant (course_id, ga_id)
 
 -- student classes         
 INSERT INTO enrolled(course_id, student_id) 
-	   VALUES (4143,1), (4313,1), (4413,1), (4723,1),   			-- student 1 () is enrolled in Java App Dev, computer Networks, fund. comp. graphics, Automata Theory 
-              (4613,2), (4143,2), (4313, 2), (4413, 2),             -- student 2 () is enrolled in Mobile App Dev., Java App Dev, Computer Networks, Fund. comp. graphics
-              (2124,3), (3113,3), (3123,3), (3233, 3), (4613,3),	-- student 3 () is enrolled in OOP, Algorithms and Adv Data Structures, programming languages, operating systems, mobile app dev
-			        (4723,4), (4313,4), (4413,4), (4143, 4),				-- student 4 () is enrolled in Automata Theory, computer networks, Fund. comp. graphics, Java App Dev
-			        (2124,5), (3113, 5),(3123,5), (3233,5), (4413, 5), 	-- student 5 () is enrolled in OOP, algorithms and Adv data structures, programming languages, operating systems, fund. comp. graphics
-              (2114, 6);                                            -- student 6 () is enrolled in structured programming 
+	   VALUES (4143,1), (4313,1), (4413,1), (4723,1),   		          	-- student 1 () is enrolled in Java App Dev, computer Networks, fund. comp. graphics, Automata Theory 
+              (4613,2), (4143,2), (4313, 2), (4413, 2),                     -- student 2 () is enrolled in Mobile App Dev., Java App Dev, Computer Networks, Fund. comp. graphics
+              (2124,3), (3113,3), (3123,3), (3233, 3), (4613,3),	    -- student 3 () is enrolled in OOP, Algorithms and Adv Data Structures, programming languages, operating systems, mobile app dev
+			        (4723,4), (4313,4), (4413,4), (4143, 4),				              -- student 4 () is enrolled in Automata Theory, computer networks, Fund. comp. graphics, Java App Dev
+			        (2124,5), (3113, 5),(3123,5), (3233,5), (4413, 5),    	-- student 5 () is enrolled in OOP, algorithms and Adv data structures, programming languages, operating systems, fund. comp. graphics
+              (2114, 6);                                                                    -- student 6 () is enrolled in structured programming 
               
               
 -- course notes              
@@ -263,9 +263,19 @@ INSERT INTO instructor_create_assignment(assignment_id, instructor_id)
               (29, 15), (30, 15);
           
 -- submitted assignments
--- INSERT INTO submitted_assignments(student_id, assignment_id, filePath, grade)
-      -- VALUES ()
+INSERT INTO submitted_assignments(student_id, assignment_id, filePath, grade)
+      VALUES -- assignments for student 1
+                      (1,15,null,25), (1,18,null, 100), (1, 21, null, 25), (1, 29, null, 90), (1, 16, null, null), (1, 17, null, null),
 
+                    -- assignments for student 2
+                      (2, 26, null, 90), (2, 15, null, 30), (2, 18, null, 95), (2, 21, null, 25),
+
+                    -- assignments for student 3
+                      (3, 4, null, 24), (3, 5, null, 10), (3, 7, null, 9), (3, 8, null, 20), (3, 10, null, 25), (3, 11, null, 25),
+                      (3, 12, null, 95), (3, 13, null, 23), (3, 14, null, 90), (3, 26, null, 95),
+
+                    -- assignments for student 4
+                      (4, 29, null, 100), (4, 18, null, 95), (4, 21, null, 25), (4, 15, null, 25);
 -- Grades
 INSERT INTO course_assignment_types(type_id, course_id, type, weight)
       VALUES (1, 2114, 'homework', 25),  (2, 2114,'Exam', 30),  (3, 2114,'Attendance', 15),  (4, 2114,'Final Exam', 30),                                  -- weights for structured programming
