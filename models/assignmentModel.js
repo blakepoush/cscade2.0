@@ -20,7 +20,31 @@ const retrieveUserAssignments = function(user_id) {
     });
 }
 
+/**
+ * Retrieve all of the users current assignments.
+ */
+const retrieveUserCurrentAssignments = function(user_id) {
+    return connection.task('retrieveUserCurrentAssignments', function(t) {
+        const assignments = t.any('select * from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate >= now()', [user_id]);
+        return assignments;
+    });
+}
+
+
+/**
+ * Retrieve all of the users past assignments.
+ */
+const retrieveUserPastAssignments = function(user_id) {
+    return connection.task('retrieveUserPastAssignments', function(t) {
+        const assignments = t.any('select * from assignments natural join course_assignments natural join enrolled natural join courses where student_id = 1 and dueDate < now()', [user_id]);
+        return assignments;
+    });
+}
+
+
 module.exports = {
     retrieveCourses_assignments,
-    retrieveUserAssignments
+    retrieveUserAssignments,
+    retrieveUserCurrentAssignments,
+    retrieveUserPastAssignments
   }
