@@ -2,9 +2,11 @@
  * Controller to handle user operations.
  */
 
-var userModel = require('../models/userModel.js');
-var courseModel = require('../models/courseModel.js');
-var assignmentModel = require('../models/assignmentModel.js');
+var userModel        = require('../models/userModel.js');
+var courseModel      = require('../models/courseModel.js');
+var assignmentModel  = require('../models/assignmentModel.js');
+var usefulLinksModel = require('../models/usefulLinksModel.js');
+var announcementModel = require('../models/announcementModel.js');
 
 /**
  * Retrieve Login Page. (GET)
@@ -21,10 +23,14 @@ module.exports.index = function(req, res, next) {
 module.exports.usefulLinks = function(req, res, next) {
   //Check if user is logged in
   if(req.session.user) {
-		res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-		res.render('usefulLinks', {
-			page: 'Useful Links'
-		 });
+		usefulLinksModel.retrieveUsefulLinks()
+			.then(links => {
+				res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+				res.render('usefulLinks', {
+					page: 'Useful Links',
+					links: links
+				});
+			});
 	} else {
 		res.render('login', {
 			page: 'Student Login',
@@ -43,18 +49,22 @@ module.exports.login = function(req, res, next) {
 			console.log(user);
 			if(user.email === req.body.username){
 				console.log(user.user_id);
-				assignmentModel.retrieveUserAssignments(user.user_id)
+				announcementModel.retrieveAnnouncements()
+				.then(announcements => {
+					assignmentModel.retrieveUserAssignments(user.user_id)
 					.then(assignments => {
 						req.session.user = user;
 						res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 						res.render('dashboard', {
 							page: 'Dashboard',
-							assignments: assignments
+							assignments: assignments,
+							announcements: announcements
 						});
 					})
 					.catch(error => {
-					console.log("Retrieving Assignment Error");
-			});
+						console.log("Retrieving Assignment Error");
+					});
+				});
 		}
 	})
 	// User Entered In Incorrect Credentials
@@ -80,16 +90,20 @@ module.exports.logout = function(req, res, next) {
 
 module.exports.getDashboard = function(req, res, next) {
 	if(req.session.user) {
-    assignmentModel.retrieveUserAssignments(req.session.user.user_id)
-      .then(assignments => {
-				res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-        res.render('dashboard', {
-          page: 'Dashboard',
-          assignments: assignments
-        });
-      })
-      .catch(error => {
-        console.log("Retrieving Assignment Error");
+		announcementModel.retrieveAnnouncements()
+			.then(announcements => {
+				assignmentModel.retrieveUserAssignments(req.session.user.user_id)
+				.then(assignments => {
+					res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+					res.render('dashboard', {
+						page: 'Dashboard',
+						assignments: assignments,
+						announcements: announcements
+					});
+				})
+				.catch(error => {
+					console.log("Retrieving Assignment Error");
+				});
 			});
   } else {
 		res.render('login', {
