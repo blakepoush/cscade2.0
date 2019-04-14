@@ -303,3 +303,11 @@ INSERT INTO announcements(id, body, dateExpired)
 -- useful links
 INSERT INTO useful_links(name, link)
       VALUES ('Student Advising', 'https://wiki.cs.astate.edu/index.php/Student/Advising');
+INSERT INTO useful_links(name, link)
+      VALUES ('Astate CS Page', 'https://www.astate.edu/college/ecs/computer-science/');
+INSERT INTO useful_links(name, link)
+      VALUES ('Astate CS Wiki', 'https://wiki.cs.astate.edu/index.php/Main_Page');
+INSERT INTO useful_links(name, link)
+      VALUES ('C++ Reference', 'https://en.cppreference.com/w/');
+INSERT INTO useful_links(name, link)
+      VALUES ('Code Friday', 'https://codefriday.cs.astate.edu/challenge');
