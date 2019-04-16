@@ -9,9 +9,25 @@ var courseModel = require('../models/courseModel.js');
  * Renders grades page as a controller.
  */
 module.exports.index = function(req, res, next) {
-  res.render('grades', {
+  /*res.render('grades', {
     page: 'Grades'
-  });
+  });*/
+
+  if(req.session.user) {
+    courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
+    .then(courses => {
+      res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+      res.render('grades', {
+        page: 'Grades',
+        courses: courses
+       });
+    });
+  } else {
+    res.render('login', {
+			page: 'Student Login',
+			error: "You must be logged in to access this page."
+		});
+  }
 }
 
 /**

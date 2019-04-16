@@ -12,11 +12,12 @@ module.exports.index = function(req, res, next) {
   if(req.session.user) {
     courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
     .then(courses => {
+      res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
       res.render('assignments', {
         page: 'Assignments',
         courses: courses
        });
-    })
+    });
   } else {
     res.render('login', {
 			page: 'Student Login',
