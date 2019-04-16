@@ -9,6 +9,11 @@ var usefulLinksModel = require('../models/usefulLinksModel.js');
 var announcementModel = require('../models/announcementModel.js');
 
 /**
+ * TODO: confer with others about if server time is still needed
+ * 			 replace getUserAssignments calls with getUserCurrentAssignments calls
+ */
+
+/**
  * Retrieve Login Page. (GET)
  */
 module.exports.index = function(req, res, next) {
@@ -51,7 +56,7 @@ module.exports.login = function(req, res, next) {
 				console.log(user.user_id);
 				announcementModel.retrieveAnnouncements()
 				.then(announcements => {
-					assignmentModel.retrieveUserAssignments(user.user_id)
+					assignmentModel.retrieveUserAssignments(user.user_id) //retrieveUserCurrentAssignments
 					.then(assignments => {
 						req.session.user = user;
 						res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
@@ -92,7 +97,7 @@ module.exports.getDashboard = function(req, res, next) {
 	if(req.session.user) {
 		announcementModel.retrieveAnnouncements()
 			.then(announcements => {
-				assignmentModel.retrieveUserAssignments(req.session.user.user_id)
+				assignmentModel.retrieveUserAssignments(req.session.user.user_id) //retrieveUserCurrentAssignments
 				.then(assignments => {
 					res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 					res.render('dashboard', {
