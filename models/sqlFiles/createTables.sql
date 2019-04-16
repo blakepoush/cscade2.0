@@ -63,8 +63,8 @@ type   int not null,
 details text, 
 filePath text,
 maxPoints int,
-dateCreated date default CURRENT_DATE,
-dueDate date not null,
+dateCreated timestamp default CURRENT_DATE,
+dueDate timestamp not null,
 primary key(assignment_id)
 );
 

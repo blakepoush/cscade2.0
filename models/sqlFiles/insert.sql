@@ -91,18 +91,18 @@ INSERT INTO notes (note_id, name, description, filePath)
        
 INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoints, dueDate)
 	   VALUES -- Structured Programming
-			        (1,'Homework 1', 1,'I/O (Input/Output)', '', 25, '2019-04-6'),
+			        (1,'Homework 1', 1,'I/O (Input/Output)', '', 25, '2019-04-6 01:00:00'),
               (2,'Homework 2', 1,'Selection', '', 100, '2019-04-15'),
               (3,'Test 1', 2,'test over chapters 1-3', null, 100, '2019-04-20'),
               
               -- OOP
-              (4,'Homework 1', 1,'Singly-Linked List', '', 25, '2019-04-6'),
+              (4,'Homework 1', 1,'Singly-Linked List', '', 25, '2019-04-6 01:00:00'),
               (5,'Quiz 1', 3,'Inheritance', null, 10, '2019-04-7'),
               (6,'Exam 1', 2,'Exam on April 16', null, 100, '2019-04-16'),
               
               -- ADV data structures
               (7,'Quiz 1', 3,'Quiz: skip list', null, 10, '2019-04-5'),
-              (8,'Homework 1', 1,'implement skip list', '', 25, '2019-04-8'),
+              (8,'Homework 1', 1,'implement skip list', '', 25, '2019-04-8 01:00:00'),
               (9,'Exam 1', 2,'Exam on April 20', null, 100, '2019-04-20'),
               
               -- Programming Languages
@@ -115,12 +115,12 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
               
               -- Java App dev
-			        (15,'Homework 1', 1,null, '', 30, '2019-04-08'),
+			        (15,'Homework 1', 1,null, '', 30, '2019-04-08 01:00:00'),
               (16,'Quiz 1', 3,'Quiz on April 21', null, 5, '2019-04-21'),
 			        (17,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
               
               -- Computer Networks
-			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-9'),
+			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-9 01:00:00'),
               (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-04-22'),
               (20,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
        
