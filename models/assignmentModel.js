@@ -11,7 +11,7 @@ const retrieveCourses_assignments  = function(course_id) {
 }
 
 /**
- * Retrieve all of the users assignments.
+ * Retrieve all of the user's assignments.
  */
 const retrieveUserAssignments = function(user_id) {
     return connection.task('retrieveUserAssignments', function(t) {
@@ -21,7 +21,7 @@ const retrieveUserAssignments = function(user_id) {
 }
 
 /**
- * Retrieve all of the users current assignments.
+ * Retrieve all of the user's current assignments.
  */
 const retrieveUserCurrentAssignments = function(user_id) {
     return connection.task('retrieveUserCurrentAssignments', function(t) {
@@ -32,7 +32,7 @@ const retrieveUserCurrentAssignments = function(user_id) {
 
 
 /**
- * Retrieve all of the users past assignments.
+ * Retrieve all of the user's past assignments.
  */
 const retrieveUserPastAssignments = function(user_id) {
     return connection.task('retrieveUserPastAssignments', function(t) {

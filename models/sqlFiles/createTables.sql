@@ -64,7 +64,7 @@ details text,
 filePath text,
 maxPoints int,
 dateCreated timestamp default CURRENT_DATE,
-dueDate timestamp not null,
+dueDate timestamp without time zone not null,
 primary key(assignment_id)
 );
 
