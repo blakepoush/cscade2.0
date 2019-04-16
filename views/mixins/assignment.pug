@@ -1,6 +1,7 @@
-mixin assignment(title, due, submitted,assignmentid)
+mixin assignment(course,title, due, submitted,assignmentid)
     .assignment.card.lg-row.mt-2
         .card-body.p-2
+            p.card-title.mb-0.font-weight-bold= course
             p.card-title.mb-0.font-weight-bold= title
             p.card-text.mb-1 Due: #{due}
             .row.align-items-center
