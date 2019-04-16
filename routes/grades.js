@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var courseController = require("../controllers/gradeController");
+var gradeController = require("../controllers/gradeController");
 
 /** GET Requests */
 

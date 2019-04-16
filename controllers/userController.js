@@ -56,7 +56,7 @@ module.exports.login = function(req, res, next) {
 				console.log(user.user_id);
 				announcementModel.retrieveAnnouncements()
 				.then(announcements => {
-					assignmentModel.retrieveUserAssignments(user.user_id) //retrieveUserCurrentAssignments
+					assignmentModel.retrieveUserCurrentAssignments(user.user_id) //retrieveUserCurrentAssignments
 					.then(assignments => {
 						req.session.user = user;
 						res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
@@ -97,7 +97,7 @@ module.exports.getDashboard = function(req, res, next) {
 	if(req.session.user) {
 		announcementModel.retrieveAnnouncements()
 			.then(announcements => {
-				assignmentModel.retrieveUserAssignments(req.session.user.user_id) //retrieveUserCurrentAssignments
+				assignmentModel.retrieveUserCurrentAssignments(req.session.user.user_id) //retrieveUserCurrentAssignments
 				.then(assignments => {
 					res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 					res.render('dashboard', {

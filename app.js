@@ -12,6 +12,7 @@ var db = require("./models/db.js");
 var indexRouter     = require('./routes');
 var courseRouter     = require('./routes/courses');
 var assignmentRouter = require('./routes/assignments');
+var gradeRouter = require('./routes/grades');
 
 // Start Express
 var app = express();
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/courses', courseRouter);
 app.use('/assignments', assignmentRouter);
+app.use('/grades', gradeRouter);
 
 // Catch 404 and Forward to Error Handler
 app.use(function(req, res, next) {
