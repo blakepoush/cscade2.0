@@ -11,7 +11,43 @@ const retrieveGrades  =  function(user_id, course_id) {
       });
   }
 
+  /**
+ * Retrieve assignment averages for the course
+ */
+const retrieveAssignmentAvg  =  function(user_id, course_id) {
+    return connection.task('retrieveAssignmentAvg ', function *(t) {
+          const grades = t.any('select course_id, type, assignment_avg($1, $2, type_id), weight, assignment_avg($1, $2, type_id) * (weight * .01) as Weighted_Avg  from course_assignment_types where course_id = $2;', [user_id, course_id]);
+          return grades;
+      });
+}
 
+  retrieveAssignmentAvg(3, 3123)
+  .then(grades=> {
+      console.log(grades);
+  })
+  .catch(error =>{
+      console.log("error");
+  });
+
+  /**
+ * Retrieve overall average for the course
+ */
+const retrieveOverallAvg  =  function(user_id, course_id) {
+    return connection.task('retrieveOverallAvg ', function *(t) {
+          const grades = t.any('select overall($1,$2);', [user_id, course_id]);
+          return grades;
+      });
+}
+
+  retrieveOverallAvg(3, 3123)
+  .then(grades=> {
+      console.log(grades);
+  })
+  .catch(error =>{
+      console.log("error");
+  });
 module.exports = {
     retrieveGrades,
+    retrieveAssignmentAvg,
+    retrieveOverallAvg
 }

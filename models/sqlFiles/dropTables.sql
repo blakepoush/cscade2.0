@@ -26,3 +26,4 @@ drop table if exists useful_links;
 drop table if exists announcements;
 drop table if exists ga_grade;
 drop table if exists instructor_grade;
+drop function assignment_avg(integer, integer, integer);
