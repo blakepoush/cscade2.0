@@ -10,5 +10,6 @@ var gradeController = require("../controllers/gradeController");
 
 // Get Courses Page
 router.get('/', gradeController.index);
+router.get('/getGrades/:courseId', gradeController.getGrades);
 
 module.exports = router;

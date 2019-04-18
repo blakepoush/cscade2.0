@@ -9,10 +9,6 @@ var courseModel = require('../models/courseModel.js');
  * Renders grades page as a controller.
  */
 module.exports.index = function(req, res, next) {
-  /*res.render('grades', {
-    page: 'Grades'
-  });*/
-
   if(req.session.user) {
     courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
     .then(courses => {
@@ -27,6 +23,26 @@ module.exports.index = function(req, res, next) {
 			page: 'Student Login',
 			error: "You must be logged in to access this page."
 		});
+  }
+}
+
+/** 
+ * Function Called to Get Grades.
+ */
+module.exports.getGrades = function(req, res, next) {
+  if(req.session.user) {
+    gradeModel.retrieveGrades(req.session.user.user_id, req.params.courseId)
+      .then(grades => {
+        //res.render('partials/assignmentList', {assignments: assignments});
+        res.end(JSON.stringify(grades));
+      })
+      .catch(err => {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({"error": "Error Retrieving Data"}));
+      });
+  } else {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({"error": "You must be logged in to access assignments!"}));
   }
 }
 

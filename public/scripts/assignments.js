@@ -25,5 +25,5 @@ function addEvent() {
 }
 
 function getAssignmentInfo() {
-  alert("hi");
+  //alert("hi");
 }
