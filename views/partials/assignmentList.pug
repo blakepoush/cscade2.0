@@ -1,3 +1,16 @@
 include ../mixins/assignment
-each item in assignments
-    +assignment(null,item.title,item.duedate,true,item.assignment_id)
+h3 Current Assignments
+if currentAssignments.length
+    each item in currentAssignments
+        +assignment(null,item.title,item.duedate,true,item.assignment_id)
+else
+    div There are no current assignments for this course.
+
+hr
+
+h3 Past Assignments
+if pastAssignments.length
+    each item in pastAssignments
+        +assignment(null,item.title,item.duedate,true,item.assignment_id)
+else    
+    div There are no past assignments for this course.

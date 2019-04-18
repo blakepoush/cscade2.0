@@ -33,9 +33,16 @@ module.exports.index = function(req, res, next) {
  */
 module.exports.getAssignments = function(req, res, next) {
   if(req.session.user) {
-    assignmentModel.retrieveCourses_assignments(req.params.courseId)
-      .then(assignments => {
-        res.render('partials/assignmentList', {assignments: assignments});
+    assignmentModel.retrieveUserCurrentAssignmentsForCourse(req.session.user.user_id, req.params.courseId)
+      .then(currentAssignments => {
+        assignmentModel.retrieveUserPastAssignmentsForCourse(req.session.user.user_id, req.params.courseId)
+          .then(pastAssignments => {
+            res.render('partials/assignmentList', {currentAssignments: currentAssignments, pastAssignments: pastAssignments});
+          })
+          .catch(err => {
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({"error": "Error Retrieving Data"}));
+          });
       })
       .catch(err => {
         res.setHeader('Content-Type', 'application/json');
