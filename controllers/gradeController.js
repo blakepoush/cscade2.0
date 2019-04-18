@@ -19,6 +19,7 @@ module.exports.index = function(req, res, next) {
        });
     });
   } else {
+    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     res.render('login', {
 			page: 'Student Login',
 			error: "You must be logged in to access this page."
@@ -27,7 +28,7 @@ module.exports.index = function(req, res, next) {
 }
 
 /** 
- * Function Called to Get Grades.
+ * Function called via AJAX to Get Grades.
  */
 module.exports.getGrades = function(req, res, next) {
   if(req.session.user) {
@@ -42,31 +43,9 @@ module.exports.getGrades = function(req, res, next) {
       });
   } else {
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({"error": "You must be logged in to access assignments!"}));
+    res.end(JSON.stringify({"error": "You must be logged in to access grades!"}));
   }
 }
-
-/**
- * Renders grades into grades page
- * 
- * TODO: get course id based on retrieveCourses_ofStudents output
-module.exports.index = function(req, res, next) {
-  if(req.session.user) {
-    courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
-    .then(courses => {                            ------------get course id from here
-      gradeModel.retrieveGrades(req.session.user.user_id, course_id)
-        res.render('grades', {
-            page: 'Grades',
-        });
-    })
-  } else {
-    res.render('login', {
-			page: 'Student Login',
-			error: "You must be logged in to access this page."
-		});
-  }
-}
-*/
 
 /**
  * TODO: Get weight relative to each assignment

@@ -1,0 +1,8 @@
+.row
+  .col-lg-12
+    ul
+      if notes.length
+        each note in notes
+          li= note.note_id
+      else
+        h6 There are no notes for this course.
