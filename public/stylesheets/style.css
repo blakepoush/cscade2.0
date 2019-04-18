@@ -105,6 +105,10 @@ nav{
   color: var(--cscade-red);
 }
 
+#red-row {
+  background: var(--cscade-red);
+  color: white;
+}
 .red-link {
   color: var(--cscade-red);
 }
