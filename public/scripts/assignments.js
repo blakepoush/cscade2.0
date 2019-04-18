@@ -25,5 +25,10 @@ function addEvent() {
 }
 
 function getAssignmentInfo() {
+<<<<<<< HEAD
+  alert("hi");
+}
+=======
   //alert("hi");
 }
+>>>>>>> 048bb68605b3f27979353152a3e9e29c5be7313d

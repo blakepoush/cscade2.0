@@ -4,6 +4,7 @@ block content
   include mixins/assignment
   include mixins/dropdown
   include mixins/assignmentPreview
+  include mixins/gradesTables
   .container
     .row
       .col-lg  
@@ -14,6 +15,10 @@ block content
       .col
         h2#courseHeader
     .row   
-      .col-lg-5#gradeContainer
-      .col-lg-2
+      - var assignments = [{assignment_id: "epic_assignment" ,title: "nice title",type: "homework" ,grade: 0},{assignment_id: "epic_assignment" ,title: "nice title",type: "homework" ,grade: 1},{assignment_id: "epic_assignment" ,title: "nice title",type: "homework" ,grade: 99}];
+      - var courseGrades = [{type: "Project", weight: 20.0, average: 10.4}];
+      - var overall = [{type: "Overall", weight: 22.0, average: 11.4}];
+      +gradeTables(assignments,courseGrades,overall)
+      //.col-lg-5#gradeContainer
+      //.col-lg-2
       //+assignmentPreview('Singly Linked List','Tuesday','Create the insert function for a singly linked list',4,20,0,0)

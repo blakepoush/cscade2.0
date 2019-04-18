@@ -1,0 +1,73 @@
+//  Attributes of assignment elements
+
+    assignment_id
+    title
+    type
+    grade
+    possible
+    
+    courseGrades:
+    type
+    weight
+    average
+
+    overall:
+    type
+    weight
+    average
+
+mixin gradeTables(assignments,courseGrades,overall)
+    .col-lg-6.table-responsive-sm.mb-3
+        table.table-sm.table-striped.table-bordered.w-100
+            thead.text-center
+                tr
+                    th(scope="col").px-2 Assignment
+                    th(scope="col").px-2 Grade
+                    th(scope="col").px-2 Type
+            tbody.align-middle.text-center
+                each assignment in assignments
+                    tr
+                        td.px-2 
+                            a(href=`assignments/${assignment.assignment_id}`).red-link= assignment.title
+                            //00:00:00 to be assignment.dueDate
+                            p Due: 00:00:00
+                        td.px-2.text-nowrap
+                            if assignment.grade
+                                //20 will soon become assignment.gradePossible
+                                p #{assignment.grade} / 20 
+                            else
+                                p -/20
+                        td.px-2
+                            p #{assignment.type}
+    .col-lg-6.table-responsive-sm.mb-3
+        table.table-sm.table-striped.table-bordered.w-100
+            thead.text-center
+                tr
+                    th(scope="col").px-2 Assignment Type
+                    th(scope="col").px-2 Weight
+                    th(scope="col").px-2 Average
+            tbody.align-middle.text-center
+                each assignmentType in courseGrades
+                    tr
+                        td.px-2 
+                            p #{assignmentType.type}
+                        td.px-2
+                            p #{assignmentType.weight}
+                        td.px-2.text-nowrap
+                            if assignmentType.average
+                                p #{assignmentType.average} / #{assignmentType.weight} 
+                            else
+                                p -/#{assignmentType.weight}
+                tr#red-row
+                    td.px-2 
+                        p #{overall.type}
+                    td.px-2
+                        p #{overall.weight}
+                    td.px-2.text-nowrap
+                        if overall.average
+                            p #{overall.average} / #{overall.weight} 
+                        else
+                            p -/#{overall.weight}
+
+
+
