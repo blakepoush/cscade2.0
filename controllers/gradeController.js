@@ -9,10 +9,6 @@ var courseModel = require('../models/courseModel.js');
  * Renders grades page as a controller.
  */
 module.exports.index = function(req, res, next) {
-  /*res.render('grades', {
-    page: 'Grades'
-  });*/
-
   if(req.session.user) {
     courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
     .then(courses => {
@@ -23,6 +19,7 @@ module.exports.index = function(req, res, next) {
        });
     });
   } else {
+    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     res.render('login', {
 			page: 'Student Login',
 			error: "You must be logged in to access this page."
@@ -30,27 +27,25 @@ module.exports.index = function(req, res, next) {
   }
 }
 
-/**
- * Renders grades into grades page
- * 
- * TODO: get course id based on retrieveCourses_ofStudents output
-module.exports.index = function(req, res, next) {
+/** 
+ * Function called via AJAX to Get Grades.
+ */
+module.exports.getGrades = function(req, res, next) {
   if(req.session.user) {
-    courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
-    .then(courses => {                            ------------get course id from here
-      gradeModel.retrieveGrades(req.session.user.user_id, course_id)
-        res.render('grades', {
-            page: 'Grades',
-        });
-    })
+    gradeModel.retrieveGrades(req.session.user.user_id, req.params.courseId)
+      .then(grades => {
+        //res.render('partials/assignmentList', {assignments: assignments});
+        res.end(JSON.stringify(grades));
+      })
+      .catch(err => {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({"error": "Error Retrieving Data"}));
+      });
   } else {
-    res.render('login', {
-			page: 'Student Login',
-			error: "You must be logged in to access this page."
-		});
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({"error": "You must be logged in to access grades!"}));
   }
 }
-*/
 
 /**
  * TODO: Get weight relative to each assignment

@@ -9,6 +9,7 @@ block content
     .row
       .col-lg  
         h1.text-center.mt-4= page
+        hr
     +dropdown(courses)
     .row.mb-4  
       .col
@@ -18,4 +19,6 @@ block content
       - var courseGrades = [{type: "Project", weight: 20.0, average: 10.4}];
       - var overall = [{type: "Overall", weight: 22.0, average: 11.4}];
       +gradeTables(assignments,courseGrades,overall)
+      //.col-lg-5#gradeContainer
+      //.col-lg-2
       //+assignmentPreview('Singly Linked List','Tuesday','Create the insert function for a singly linked list',4,20,0,0)
