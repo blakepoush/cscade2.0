@@ -21,13 +21,6 @@ const retrieveAssignmentAvg  =  function(user_id, course_id) {
       });
 }
 
-  retrieveAssignmentAvg(3, 3123)
-  .then(grades=> {
-      console.log(grades);
-  })
-  .catch(error =>{
-      console.log("error");
-  });
 
   /**
  * Retrieve overall average for the course
@@ -39,13 +32,6 @@ const retrieveOverallAvg  =  function(user_id, course_id) {
       });
 }
 
-  retrieveOverallAvg(3, 3123)
-  .then(grades=> {
-      console.log(grades);
-  })
-  .catch(error =>{
-      console.log("error");
-  });
 module.exports = {
     retrieveGrades,
     retrieveAssignmentAvg,

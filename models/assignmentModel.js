@@ -61,6 +61,16 @@ const retrieveUserPastAssignmentsForCourse = function(user_id, course_id) {
     });
 }
 
+/**
+ * Insert assignment into submitted assignments
+ */
+const insertAssignment = function(user_id, assignment_id, filePath) {
+    return connection.task('insertAssignment', function(t) {
+        return t.none('INSERT INTO submitted_assignments(student_id, assignment_id, filePath, grade) VALUES ($1,$2,$3,null)', [user_id, assignment_id,filePath]);
+    });
+}
+
+
 
 module.exports = {
     retrieveCourses_assignments,
@@ -68,5 +78,6 @@ module.exports = {
     retrieveUserCurrentAssignments,
     retrieveUserPastAssignments,
     retrieveUserCurrentAssignmentsForCourse,
-    retrieveUserPastAssignmentsForCourse
+    retrieveUserPastAssignmentsForCourse,
+    insertAssignment
   }
