@@ -1,0 +1,6 @@
+include mixins/gradesTables
+
+- var assignments = [{assignment_id: "epic_assignment" ,title: "nice title",type: "homework" ,grade: 0},{assignment_id: "epic_assignment" ,title: "nice title",type: "homework" ,grade: 1},{assignment_id: "epic_assignment" ,title: "nice title",type: "homework" ,grade: 99}];
+- var courseGrades = [{type: "Project", weight: 20.0, average: 10.4},{type: "Overall", weight: 22.0, average: 11.4}];
+- var overallGrades = [{type: "Overall", weight: 22.0, average: 11.4}];
++gradesTables(assignments,courseGrades,overallGrades);

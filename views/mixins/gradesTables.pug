@@ -38,7 +38,7 @@ mixin gradeTables(assignments,courseGrades,overall)
                             else
                                 div -/20
                         td.px-2
-                            div #{assignment.type}
+                            div #{assignment.type}                         
     .col-lg-6.table-responsive-sm.mb-3
         table.table-sm.table-striped.table-bordered.w-100
             thead.text-center
@@ -70,6 +70,5 @@ mixin gradeTables(assignments,courseGrades,overall)
                                     div #{assignmentType.average} / #{assignmentType.weight} 
                                 else
                                     div -/#{assignmentType.weight}
-
 
 
