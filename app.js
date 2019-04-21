@@ -42,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/courses', courseRouter);
 app.use('/assignments', assignmentRouter);
 app.use('/grades', gradeRouter);
+app.use(express.static('uploads'));
 
 // Catch 404 and Forward to Error Handler
 app.use(function(req, res, next) {
