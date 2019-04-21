@@ -1,0 +1,8 @@
+mixin courseNote(name, description, date_posted, filepath)
+  h3= name
+  div.mb-2
+    strong Posted: 
+    span= date_posted
+  div.mb-2= description
+  if filepath
+    a.red-link(href="#{filepath}" target="_blank") Files

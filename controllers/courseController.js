@@ -1,6 +1,7 @@
 const pug = require('pug');
 var assignmentModel = require('../models/assignmentModel.js');
 var courseModel = require('../models/courseModel.js');
+var noteModel = require('../models/noteModel.js');
 
 /**
  * TODO: confer with others about what other data/functions are needed
@@ -58,21 +59,14 @@ module.exports.getAssignments = function(req, res, next) {
  */
 module.exports.getNotes = function(req, res, next) {
   if(req.session.user) {
-    let notes = {
-      "notes": [
-        {"note_id": "4", "name": "Notes 1", "description": "An Introduction to C++.", "dateposted": "2019-04-16", "filepath": "/resources"}
-      ]
-    };
-    /*courseModel.retrieveCourseNotes(req.params.courseId)
+    noteModel.retrieveCourses_notes(req.params.courseId)
       .then(notes => {
-        //res.render('partials/noteList', {notes: notes});
+        res.render('partials/noteList', {notes: notes});
       })
       .catch(err => {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({"error": "Error Retrieving Data"}));
-      });*/
-      //res.end(JSON.stringify(notes));
-      res.render('partials/noteList', {notes: notes});
+      });
   } else {
     res.end(JSON.stringify({"error": "You must be logged in to access course notes!"}));
   }

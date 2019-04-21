@@ -1,8 +1,8 @@
-.row
-  .col-lg-12
-    ul
-      if notes.length
-        each note in notes
-          li= note.note_id
-      else
-        h6 There are no notes for this course.
+include ../mixins/courseNote
+.col-lg-12
+  if notes.length
+    each note in notes
+      +courseNote(note.name, note.description, note.dateposted, note.filepath)
+      hr
+  else
+    h6 There are no notes for this course.
