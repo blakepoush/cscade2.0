@@ -52,13 +52,3 @@ module.exports.getGrades = function(req, res, next) {
     res.end(JSON.stringify({"error": "You must be logged in to access grades!"}));
   }
 }
-
-/**
- * TODO: Get weight relative to each assignment
- *       Get grades in relation to those assignments
- *       Calculate average grade based on these numbers
- *       Return average
-module.exports.calculateAvg (course_id, user_id) {
-  
-}
- */

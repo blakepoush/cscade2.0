@@ -25,7 +25,7 @@ function getResource() {
   
   if(category == "grades") {
     console.log("G");
-    //ajaxRequest("GET", `/grades/getGrades/${courseId}`, {}, insertData);
+    ajaxRequest("GET", `/grades/getGrades/${courseId}`, {}, insertData);
   } else if(category == "assignments") {
     console.log("A");
     //ajaxRequest("GET", `/grades/getGrades/${courseId}`, {}, insertData);
