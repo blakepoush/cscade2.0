@@ -5,7 +5,7 @@ mixin assignment(course,title, due, submitted,assignmentid)
             p.card-title.mb-0.font-weight-bold= title
             p.card-text.mb-1.date Due: #{due}
             .row.align-items-center
-                a.assignmentInfo.btn.white-btn.ml-3.mr-2.py-0.px-1.font-weight-bold(href= '/assignments/'+ assignmentid) View More
+                a.assignmentInfo.btn.white-btn.ml-3.mr-2.py-0.px-1.font-weight-bold(href= '/assignments/'+ assignmentid, data-info= assignmentid) View More
                 if submitted
                     i.far.fa-check-circle
                 else

@@ -1,5 +1,5 @@
 var courseModel = require('../models/courseModel.js');
-//var assignmentModel = require('../models/assignmentModel.js');
+var assignmentModel = require('../models/assignmentModel.js');
 
 /**
  * TODO: confer with others about what other data/functions are needed
@@ -24,6 +24,35 @@ module.exports.index = function(req, res, next) {
 			page: 'Student Login',
 			error: "You must be logged in to access this page."
 		});
+  }
+}
+
+/**
+ * Get the details for an assignment (AJAX Request).
+ */
+module.exports.getAssignmentInfo = function(req, res, next) {
+  if(req.session.user) {
+    /*assignmentModel.retrieveAssignment_info(req.session.user.user_id, req.params.assignmentId)
+      .then(details => {
+        res.render('partials/assignmentDetails', {details: details});
+      })
+      .catch(err => {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({"error": "Error Retrieving Data"}));
+      });*/
+      //details.title,details.duedate,details.details,details.assignment_id,details.points,details.submitted,details.feedback
+      var details = {
+        "title": "Test Assignment",
+        "duedate": "04-12-19",
+        "details": "This a test assignment used for testing purposes only!",
+        "assignment_id": "25",
+        "points": "40",
+        "submitted": "test.txt",
+        "feedback": "Good job, make sure to check your indentation."
+      }
+      res.render('partials/assignmentDetails', {details: details});
+  } else {
+    res.end(JSON.stringify({"error": "You must be logged in to access assignment details!"}));
   }
 }
 

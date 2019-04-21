@@ -3,6 +3,7 @@ window.onload = () => {
 }
 
 function getAssignments() {
+  document.getElementById("detailsContainer").innerHTML = "";
   let select = document.getElementById("courseSelect");
   let id = select.value;
   document.getElementById("courseHeader").innerHTML = select.options[select.selectedIndex].text;
@@ -24,6 +25,14 @@ function addEvent() {
   }
 }
 
-function getAssignmentInfo() {
-  //alert("hi");
+function getAssignmentInfo(e) {
+  e.preventDefault();
+  var id = e.target.getAttribute("data-info");
+  //insertAssignmentInfo("hi");
+  ajaxRequest("GET", `/assignments/getAssignmentInfo/${id}`, {}, insertAssignmentInfo);
+}
+
+function insertAssignmentInfo(data) {
+  console.log(data);
+  document.getElementById("detailsContainer").innerHTML = data;
 }

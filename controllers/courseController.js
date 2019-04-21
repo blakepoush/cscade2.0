@@ -30,7 +30,7 @@ module.exports.index = function(req, res, next) {
 }
 
 /** 
- * Function called via AJAX to Get Grades.
+ * Function called via AJAX to Get Assignments.
  */
 module.exports.getAssignments = function(req, res, next) {
   if(req.session.user) {
