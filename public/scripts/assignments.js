@@ -14,7 +14,6 @@ function insertAssignments(data) {
   console.log(data);
   document.getElementById("assignmentContainer").innerHTML = data;
   addEvent();
-  trimDates();
 }
 
 function addEvent() {
