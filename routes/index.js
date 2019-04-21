@@ -11,6 +11,7 @@ var userController = require("../controllers/userController");
 router.get('/', userController.index);                  // Get Login Page
 router.get('/usefulLinks', userController.usefulLinks); // Useful Links
 router.get('/dashboard', userController.getDashboard);  // Get Dashboard
+router.get('/logout', userController.logout);
  
 /** POST Requests */
 router.post('/dashboard', userController.login);        // Log In
