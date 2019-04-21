@@ -10,7 +10,19 @@ const retrieveCourses_ofStudent  = async function(user_id) {
     });
   }
 
+/**
+ * Retrieve course ID based on assignment ID.
+ */
+const retrieveCourseID  = async function(assignment_id) {
+  return connection.task('retrieveCourseID ', function (t) {
+      const course_id =  t.one('select course_id from course_assignments where assignment_id = $1', [assignment_id]);
+      return course_id;
+  });
+}
+
+
 module.exports = {
     retrieveCourses_ofStudent,
+    retrieveCourseID
   }
 

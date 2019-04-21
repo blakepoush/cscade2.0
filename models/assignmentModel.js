@@ -62,6 +62,17 @@ const retrieveUserPastAssignmentsForCourse = function(user_id, course_id) {
 }
 
 /**
+ * Retrieve assignment details.
+ */
+const retrieveAssignmentDetails = function(user_id, assignment_id) {
+    return connection.task('retrieveAssignmentDetails', function(t) {
+        const assignment = t.any('select assignments.assignment_id, title, dueDate, details, assignments.filePath As Materials, maxPoints, feedBack As feedBack_Message, feedBack_filepath, assignment_filePath from assignments, submitted_assignments where assignments.assignment_id = submitted_assignments.assignment_id and student_id = $1 and submitted_assignments.assignment_id = $2;', [user_id, assignment_id]);
+        return assignment;
+    });
+}
+
+
+/**
  * Insert assignment into submitted assignments
  */
 const insertAssignment = function(user_id, assignment_id, filePath) {
@@ -79,5 +90,6 @@ module.exports = {
     retrieveUserPastAssignments,
     retrieveUserCurrentAssignmentsForCourse,
     retrieveUserPastAssignmentsForCourse,
+    retrieveAssignmentDetails,
     insertAssignment
   }
