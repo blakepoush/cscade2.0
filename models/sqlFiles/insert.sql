@@ -116,35 +116,43 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               
               -- Java App dev
 			        (15,'Homework 1', 1,null, '', 30, '2019-04-08 01:00:00'),
-              (16,'Quiz 1', 3,'Quiz on April 21', null, 5, '2019-04-21'),
-			        (17,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
+              (31, 'Homework 2', 1, 'Strategy Pattern',null, 30,'2019-04-13 01:00:00' ),
+              (32, 'Homework 3', 1, 'Observer Pattern',null, 30,'2019-04-25 01:00:00' ),
+              (16,'Quiz 1', 3,'Quiz on April 21', null, 5, '2019-04-21 12:30:00'),
+			        (17,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23 12:30:00'),
               
               -- Computer Networks
 			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-9 01:00:00'),
-              (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-04-22'),
-              (20,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23'),
+              (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-04-15 01:00:00'),
+              (33,'Homework 3', 1,'FTP over TCP', null, 100, '2019-04-19 01:00:00'),
+              (20,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23 08:00:00'),
        
 			  -- Computer Graphics
 			  (21,'01 a: Line pixel error', 1,'Read (x,y) for two points from keyboard; display initial error, delta error for increments 
 				and for no increments. Then loop to display (x, y) and associated error for each pixel between the two points.
-				(See pdf for example display.)', null, 25, '2019-04-12'),
+				(See pdf for example display.)', null, 25, '2019-04-12 01:00:00'),
 			  (22,'01 b: line with dx > 0, dy > 0, dx > dy', 1,'Get two endpoints with dx > 0, dy > 0, and dx > dy; print same table as 01 a 
-				and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-13'),
+				and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-13 01:00:00'),
 			  (23,'01 c: line with dx > 0, dy > 0 and dy > dx', 1,'Get two endpoints with dx > 0, dy > 0, and dx < dy; print same table as 01
-				a and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-14'),
+				a and generate associated picture. Assume "500x500.bmp" in same directory.', null, 25, '2019-04-14 01:00:00'),
 			  (24,'01 d: all 16 possible lines', 1,'Get start point from user and draw in 16 directions, +/- 100 and +/- 50. Assume "500x500.bmp"
-				in current directory.', null, 25, '2019-04-15'),
+				in current directory.', null, 25, '2019-04-15 01:00:00'),
 			  (25,'02 a: circle pixel error', 1, 'Read (x,y) for center point and radius from keyboard; display initial error. Then loop to display (x, y), 
-				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-16'),
-				
+				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-16 01:00:00'),
+				(34,'Exam 1', 2,'Exam on April 12', null, 100, '2019-04-12 14:00:00'),
+        (35,'Exam 2', 2,'Exam on April 20', null, 100, '2019-04-20 14:00:00'),
+
                -- Mobile App dev 
-			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-04-5'),
-			  (27,'Meeting 2', 4,'Discuss your progress with your app.', null, 100, '2019-04-20'),
-			  (28,'Presentation', 5,'Presentation', null, 100, '2019-04-29'),
+			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-04-5 10:00:00'),
+			  (27,'Meeting 2', 4,'Discuss your progress with your app.', null, 100, '2019-04-20 10:00:00'),
+			  (28,'Presentation', 5,'Presentation', null, 100, '2019-04-29 10:00:00'),
               
               -- Automata Theory
-              (29,'Exam 1', 2,'Exam on April 15', null, 100, '2019-03-08'),
-			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-04-30');
+              (29,'Exam 1', 2,'Exam on March 15', null, 100, '2019-03-08 11:00:00'),
+              (36,'Homework 1', 1,'Finite State', null, 50, '2019-03-20 01:00:00'),
+              (37,'Homework 2', 1,'Automata Theory Questions', null, 50, '2019-04-24 01:00:00'),
+              (38,'Exam 2', 2,'Exam on April 19', null, 100, '2019-04-19 11:00:00'),
+			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-04-30 11:00:00');
        
        
 -- courses
@@ -189,7 +197,7 @@ INSERT INTO assistant (course_id, ga_id)
 
 -- student classes         
 INSERT INTO enrolled(course_id, student_id) 
-	   VALUES (4143,1), (4313,1), (4413,1), (4723,1),   		          	-- student 1 () is enrolled in Java App Dev, computer Networks, fund. comp. graphics, Automata Theory 
+	   VALUES (4143,1), (4313,1), (4413,1), (4723,1), (4613,1),   		          	-- student 1 () is enrolled in Java App Dev, computer Networks, fund. comp. graphics, Automata Theory 
               (4613,2), (4143,2), (4313, 2), (4413, 2),                     -- student 2 () is enrolled in Mobile App Dev., Java App Dev, Computer Networks, Fund. comp. graphics
               (2124,3), (3113,3), (3123,3), (3233, 3), (4613,3),	    -- student 3 () is enrolled in OOP, Algorithms and Adv Data Structures, programming languages, operating systems, mobile app dev
 			        (4723,4), (4313,4), (4413,4), (4143, 4),				              -- student 4 () is enrolled in Automata Theory, computer networks, Fund. comp. graphics, Java App Dev
@@ -217,11 +225,11 @@ INSERT INTO course_assignments(assignment_id, course_id)
               (7, 3113), (8, 3113), (9, 3113),
               (10, 3123), (11, 3123), (12, 3123),
               (13, 3233), (14, 3233), 
-              (15, 4143), (16, 4143), (17, 4143),
-              (18, 4313), (19, 4313), (20, 4313),
-              (21, 4413), (22, 4413), (23, 4413), (24, 4413), (25, 4413),
+              (15, 4143), (16, 4143), (17, 4143), (31, 4143), (32, 4143),
+              (18, 4313), (19, 4313), (20, 4313), (33, 4313),
+              (21, 4413), (22, 4413), (23, 4413), (24, 4413), (25, 4413), (34, 4413), (35, 4413), 
               (26, 4613), (27, 4613), (28, 4613),
-              (29, 4723), (30, 4723);
+              (29, 4723), (30, 4723), (36, 4723), (37, 4723), (38, 4723);
               
 INSERT INTO GA_create_note(note_id, GA_id)
 	   VALUES 
@@ -263,19 +271,22 @@ INSERT INTO instructor_create_assignment(assignment_id, instructor_id)
               (29, 15), (30, 15);
           
 -- submitted assignments
-INSERT INTO submitted_assignments(student_id, assignment_id, filePath, grade)
+INSERT INTO submitted_assignments(student_id, assignment_id, assignment_filePath, grade, feedBack, feedBack_filepath)
       VALUES -- assignments for student 1
-                      (1,15,null,25), (1,18,null, 100), (1, 21, null, 25), (1, 29, null, 90), (1, 16, null, null), (1, 17, null, null),
+                      (1,15,null,25,'Good Job!', null), (1,18,null, 100, 'Good Job!', null), (1, 21, null, 25, null, null), (1, 29, null, 90, 'Good!', null),
+                      (1, 16, null, 5, null, null), (1, 17, null, null, null, null),  (1,31,null,29,null, null), (1,33,null,80,null, null),  (1,22,null,25,null, null), 
+                      (1,23,null,25,null, null),  (1,24,null,24,null, null),  (1,25,null,23,null, null),  (1,34,null,80,null, null),  (1,35,null,90,'Good Job!', null),
+                      (1,26,null,90,'Good!', null),   (1,27,null,80,null, null),   (1,36,null,40,null, null),  (1,38,null,80,'', null), 
 
                     -- assignments for student 2
-                      (2, 26, null, 90), (2, 15, null, 30), (2, 18, null, 95), (2, 21, null, 25),
+                      (2, 26, null, 90, null, null), (2, 15, null, 30, null, null), (2, 18, null, 95, null, null), (2, 21, null, 25, null, null),
 
                     -- assignments for student 3
-                      (3, 4, null, 24), (3, 5, null, 10), (3, 7, null, 9), (3, 8, null, 20), (3, 10, null, 25), (3, 11, null, 25),
-                      (3, 12, null, 95), (3, 13, null, 23), (3, 14, null, 90), (3, 26, null, 95),
+                      (3, 4, null, 24, null, null), (3, 5, null, 10, null, null), (3, 7, null, 9, null, null), (3, 8, null, 20, null, null), (3, 10, null, 25, null, null), (3, 11, null, 25, null, null),
+                      (3, 12, null, 95, null, null), (3, 13, null, 23, null, null), (3, 14, null, 90, null, null), (3, 26, null, 95, null, null),
 
                     -- assignments for student 4
-                      (4, 29, null, 100), (4, 18, null, 95), (4, 21, null, 25), (4, 15, null, 25);
+                      (4, 29, null, 100, null, null), (4, 18, null, 95, null, null), (4, 21, null, 25, null, null), (4, 15, null, 25, null, null);
 -- Grades
 INSERT INTO course_assignment_types(type_id, course_id, type, weight)
       VALUES (1, 2114, 'homework', 25),  (2, 2114,'Exam', 30),  (3, 2114,'Attendance', 15),  (4, 2114,'Final Exam', 30),                                  -- weights for structured programming
@@ -297,7 +308,7 @@ INSERT INTO announcements(id, body, dateExpired)
       Friday, April 26 at 12:00pm in CSM 211 during {code|friday}.
       Everyone is invited to attend.  Come participate in your CS student club!','2019-04-26' ),
 
-      (2,'Internship opportunity with Ritter Communications. If you are interested in this position, please email Dr. Su with your resume by April 20.', '2019-04-18');
+      (2,'Internship opportunity with Ritter Communications. If you are interested in this position, please email Dr. Su with your resume by April 25.', '2019-04-28');
 
 
 -- useful links

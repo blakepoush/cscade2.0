@@ -124,8 +124,10 @@ primary key(assignment_id)
 create table submitted_assignments(
 student_id    int not null references student(user_id),
 assignment_id int not null references assignments(assignment_id),
-filePath				   text,
+assignment_filePath		 text,
 grade					  int,
+feedBack			  text,
+feedBack_filepath text,
 primary key(student_id, assignment_id)
 );
 
