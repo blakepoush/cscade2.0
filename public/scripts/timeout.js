@@ -1,7 +1,7 @@
 
 function idleTimer() {
-  var timoutWarning = 30000; // Display warning in 14 Mins.
-	var timoutNow = 45000; // Timeout in 15 mins would be 900000.
+  var timoutWarning = 540000; // Display warning at 9 minutes
+	var timoutNow = 600000; // Timeout in 10 minutes
 	var logoutUrl = '/logout'; // URL to logout page.
 	var body = document.getElementById("body");
 
@@ -27,14 +27,11 @@ function idleTimer() {
 		clearTimeout(warningTimer);
 		clearTimeout(timeoutTimer);
 		StartTimers();
-		//$("#timeout").dialog('close');
 	}
 
 	// Show idle timeout warning dialog.
 	function IdleWarning() {
-	  //	$("#timeout").dialog({
-		//modal: true
-		alert("Warning, you will be logged out in 1 min unless . Due to not move your mouse within the page in 15 minutes.");
+		alert("Warning, you will soon be logged out due to inactivity.");
 	//});
 	}
 
