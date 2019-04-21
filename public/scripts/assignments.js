@@ -7,7 +7,7 @@ function getAssignments() {
   let select = document.getElementById("courseSelect");
   let id = select.value;
   document.getElementById("courseHeader").innerHTML = select.options[select.selectedIndex].text;
-  ajaxRequest("GET", `/courses/getAssignments/${id}`, {}, insertAssignments);
+  ajaxRequest("GET", `/courses/getAssignments/${id}/${false}`, {}, insertAssignments);
 }
 
 function insertAssignments(data) {

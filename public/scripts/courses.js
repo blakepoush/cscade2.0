@@ -2,6 +2,8 @@ window.onload = () => {
   document.getElementById("courseSelect").addEventListener("change", showHeader);
 }
 
+var category = "";
+
 /**
  * Show Name and Category Select for a Course.
  */
@@ -21,14 +23,15 @@ function getResource() {
   let courseSelect = document.getElementById("courseSelect");
   let courseId = courseSelect.value;
   let categorySelect = document.getElementById("categorySelect");
-  let category = categorySelect.value;
+  category = categorySelect.value;
   
   if(category == "grades") {
     console.log("G");
     ajaxRequest("GET", `/grades/getGrades/${courseId}`, {}, insertData);
   } else if(category == "assignments") {
     console.log("A");
-    //ajaxRequest("GET", `/grades/getGrades/${courseId}`, {}, insertData);
+    ajaxRequest("GET", `/courses/getAssignments/${courseId}/${true}`, {}, insertData);
+    //ajaxRequest("GET", `/assignments/getCourseAssignments/${assignmentId}`, {}, insertData);
   } else if(category == "notes") {
     console.log("N");
     ajaxRequest("GET", `/courses/getNotes/${courseId}`, {}, insertData);
@@ -41,4 +44,26 @@ function getResource() {
 function insertData(data) {
   console.log(data);
   document.getElementById("resourceContainer").innerHTML = data;
+
+  if(category == "assignments") {
+    addEvent();
+  }
+}
+
+function addEvent() {
+  let events = document.getElementsByClassName("assignmentInfo");
+  for(var i = 0; i < events.length; i++) {
+    events[i].addEventListener("click", getAssignmentInfo);
+  }
+}
+
+function getAssignmentInfo(e) {
+  e.preventDefault();
+  var id = e.target.getAttribute("data-info");
+  ajaxRequest("GET", `/assignments/getAssignmentInfo/${id}`, {}, insertAssignmentInfo);
+}
+
+function insertAssignmentInfo(data) {
+  console.log(data);
+  document.getElementById("detailsContainer").innerHTML = data;
 }
