@@ -52,11 +52,3 @@ function dismissAlerts() {
 }
 
 setTimeout(dismissAlerts, 5000);
-
-window.onload = () => {trimDates();};
-function trimDates(){
-  var dates = document.getElementsByClassName("date");
-    for(var i=0; i< dates.length;i++){
-      dates[i].innerHTML = dates[i].innerHTML.substr(0,29);
-    }
-}

@@ -11,5 +11,8 @@ nav.navbar.navbar-dark
   a(href='/usefulLinks' class=(page === "Useful Links") ? 'active': '') Useful Links
   form(method='POST' action='/')
     button.logout-btn(type='submit') Logout
-  span#serverTime HH:MM:SS AM
+  
+  div#serverInfo
+    div Server Time
+    div#serverTime
 
