@@ -27,7 +27,7 @@ const retrieveAssignmentAvg  =  function(user_id, course_id) {
  */
 const retrieveOverallAvg  =  function(user_id, course_id) {
     return connection.task('retrieveOverallAvg ', function *(t) {
-          const grades = t.any('select overall($1,$2);', [user_id, course_id]);
+          const grades = t.any('select overall($1,$2)', [user_id, course_id]);
           return grades;
       });
 }

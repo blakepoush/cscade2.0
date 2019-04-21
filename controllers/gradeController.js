@@ -34,12 +34,18 @@ module.exports.getGrades = function(req, res, next) {
   if(req.session.user) {
     gradeModel.retrieveGrades(req.session.user.user_id, req.params.courseId)
       .then(grades => {
-        //res.render('partials/assignmentList', {assignments: assignments});
-        res.end(JSON.stringify(grades));
+        gradeModel.retrieveAssignmentAvg(req.session.user.user_id, req.params.courseId)
+          .then(avgs => {
+            gradeModel.retrieveOverallAvg(req.session.user.user_id, req.params.courseId)
+              .then(overall => {
+                var roundedOverall = Number.parseFloat(overall[0].overall).toFixed(2);
+                res.render('partials/courseGrades', {assignments: grades, courseGrades: avgs, overallGrade: {"overall": roundedOverall}});
+              })
+          })
       })
       .catch(err => {
         res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({"error": "Error Retrieving Data"}));
+        res.end(JSON.stringify({"error": "Unable to Retrieve Data"}));
       });
   } else {
     res.setHeader('Content-Type', 'application/json');

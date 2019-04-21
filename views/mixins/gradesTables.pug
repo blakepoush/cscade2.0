@@ -16,7 +16,7 @@
     weight
     average
 
-mixin gradeTables(assignments,courseGrades,overall)
+mixin gradesTables(assignments,courseGrades,overallGrade)
     .col-lg-6.table-responsive-sm.mb-3
         table.table-sm.table-striped.table-bordered.w-100
             thead.text-center
@@ -30,11 +30,11 @@ mixin gradeTables(assignments,courseGrades,overall)
                         td.px-2 
                             a(href=`assignments/${assignment.assignment_id}`).red-link= assignment.title
                             //00:00:00 to be assignment.dueDate
-                            div Due: 00:00:00
+                            div Due: #{assignment.duedate}
                         td.px-2.text-nowrap
                             if assignment.grade
                                 //20 will soon become assignment.gradePossible
-                                div #{assignment.grade} / 20 
+                                div #{assignment.grade} / #{assignment.maxpoints} 
                             else
                                 div -/20
                         td.px-2
@@ -70,5 +70,13 @@ mixin gradeTables(assignments,courseGrades,overall)
                                     div #{assignmentType.average} / #{assignmentType.weight} 
                                 else
                                     div -/#{assignmentType.weight}
+                tr#red-row
+                    td.px-2.font-weight-bold
+                        div Overall
+                    td.px-2
+                        div 100
+                    td.px-2.text-nowrap
+                        div #{overallGrade.overall}
+                
 
 
