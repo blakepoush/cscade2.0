@@ -66,8 +66,9 @@ mixin gradesTables(assignments,courseGrades,overallGrade)
                             td.px-2
                                 div #{assignmentType.weight}
                             td.px-2.text-nowrap
-                                if assignmentType.average
-                                    div #{assignmentType.average} / #{assignmentType.weight} 
+                                if assignmentType.weighted_avg
+                                    - assignmentType.weighted_avg = Number.parseFloat(assignmentType.weighted_avg).toFixed(2);
+                                    div #{assignmentType.weighted_avg} / #{assignmentType.weight} 
                                 else
                                     div -/#{assignmentType.weight}
                 tr#red-row

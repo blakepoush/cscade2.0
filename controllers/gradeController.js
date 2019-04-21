@@ -39,6 +39,7 @@ module.exports.getGrades = function(req, res, next) {
             gradeModel.retrieveOverallAvg(req.session.user.user_id, req.params.courseId)
               .then(overall => {
                 var roundedOverall = Number.parseFloat(overall[0].overall).toFixed(2);
+                //res.end(JSON.stringify(avgs));
                 res.render('partials/courseGrades', {assignments: grades, courseGrades: avgs, overallGrade: {"overall": roundedOverall}});
               })
           })
