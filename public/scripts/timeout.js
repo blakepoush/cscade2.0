@@ -8,6 +8,7 @@ function idleTimer() {
 	// Add event listners for clicking the page or moving the mouse over the page
 	body.addEventListener("click", ResetTimers);
 	body.addEventListener("mousemove", ResetTimers);
+	window.addEventListener("scroll", ResetTimers);
 
 	var warningTimer;
 	var timeoutTimer;
@@ -32,7 +33,6 @@ function idleTimer() {
 	// Show idle timeout warning dialog.
 	function IdleWarning() {
 		alert("Warning, you will soon be logged out due to inactivity.");
-	//});
 	}
 
 	// Logout the user.
