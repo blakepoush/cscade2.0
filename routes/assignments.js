@@ -12,5 +12,6 @@ var assignmentController = require("../controllers/assignmentController");
 router.get('/', assignmentController.index);
 router.get('/:assignmentId', assignmentController.index);
 router.get('/getAssignmentInfo/:assignmentId', assignmentController.getAssignmentInfo);
+router.post('/upload',assignmentController.uploadFile);
 
 module.exports = router;

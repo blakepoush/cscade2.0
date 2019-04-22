@@ -34,10 +34,10 @@ mixin assignmentPreview(title,due,description,id,points,grade,submitted,feedback
             a(href="returned" target="_blank")
         else
             span None
-    form.mt-2.no-gutters(method="GET" action="/")
+    form.mt-2.no-gutters(form action="./upload" enctype="multipart/form-data" method="POST")
         .form-row
         .col
-            input.form-control-file(type="file" placeholder="Upload Files..." required)
+            input.form-control-file(name="assignmentFile" type="file" placeholder="Upload Files..." required)
         .form-row.mt-2
         .col
             button.btn.red-btn.mt-2(type="submit") Submit

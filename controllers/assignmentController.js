@@ -1,10 +1,9 @@
 var courseModel = require('../models/courseModel.js');
 var assignmentModel = require('../models/assignmentModel.js');
-/*const bodyParser= require('body-parser')
 const multer = require('multer');
-app.use(bodyParser.urlencoded({extended: true}))
-const path = require('path'); */
-
+const path = require('path');
+const fs = require('fs');
+/*
 /**
  * TODO: confer with others about what other data/functions are needed
  */
@@ -111,31 +110,39 @@ module.exports.getAssignmentInfo = function(req, res, next) {
 //https://www.youtube.com/watch?v=9Qzmri1WaaE&t=4s
 
 
-/* set storage location 
+//set storage location 
 const storage = multer.diskStorage({
-  destination: './uploads/studentUploads',
+  destination: function (req, file, cb) {
+    try{
+      fs.mkdirSync('./uploads/studentUploads/'+ req.session.user.user_id,{recursive:true});
+    }
+    catch(err){
+      if(err.code !== 'EEXIST') throw err;
+    }
+    cb(null, './uploads/studentUploads/'+ req.session.user.user_id);
+  },
   filename: function (req, file, cb) {
     cb(null, file.originalname + "-" + Date.now() + path.extname(file.originalname));
   }
 });
  
 //set upload specs
-const upload = multer({ storage: storage }).single("myFile");
+const upload = multer({ storage: storage }).single("assignmentFile");
 
 //POST file for upload
-app.post("/upload", (req, res, next) => {
+module.exports.uploadFile = function(req, res, next) {
   upload(req, res, (err) => {
     if (err) {
-      alert(err);
+      console.log(err);
     }
     else {
-      if (!file) {
-        alert("No File Selected.");
+      if (!req.file) {
+        console.log("No File Selected.");
       }
       else {
-        res.send(file);
+        console.log(req.file);
+        res.end();
       }
     }
   });
-});
-*/ 
+}
