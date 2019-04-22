@@ -77,7 +77,7 @@ const retrieveAssignmentDetails = function(user_id, assignment_id) {
  */
 const insertAssignment = function(user_id, assignment_id, filePath) {
     return connection.task('insertAssignment', function(t) {
-        return t.none('INSERT INTO submitted_assignments(student_id, assignment_id, filePath, grade) VALUES ($1,$2,$3,null)', [user_id, assignment_id,filePath]);
+        return t.none('INSERT INTO submitted_assignments(student_id, assignment_id, assignment_filePath, grade) VALUES ($1,$2,$3,null)', [user_id, assignment_id,filePath]);
     });
 }
 

@@ -79,8 +79,11 @@ module.exports.getAssignmentInfo = function(req, res, next) {
     var assignmentId = parseInt(req.params.assignmentId);
     assignmentModel.retrieveAssignmentDetails(req.session.user.user_id, assignmentId)
       .then(details => {
-        res.render('partials/assignmentDetails', {details: details[0]});
-        //res.end(JSON.stringify(details[0]));
+        courseModel.retrieveCourseID(req.params.assignmentId)
+        .then(courseId => {
+          res.render('partials/assignmentDetails', {details: details[0],courseId: courseId.course_id});
+          //res.end(JSON.stringify(details[0]));
+        })
       })
       .catch(err => {
         res.setHeader('Content-Type', 'application/json');
@@ -93,13 +96,26 @@ module.exports.getAssignmentInfo = function(req, res, next) {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
+    var dir = './uploads/studentUploads/'+ req.body.courseId.toString();
     try{
-      fs.mkdirSync('./uploads/studentUploads/'+ req.session.user.user_id,{recursive:true});
-    }
-    catch(err){
+      fs.mkdirSync(dir,{recursive:true});
+      dir += '/'+ req.body.assignmentId.toString();
+      try {
+        fs.mkdirSync(dir,{recursive:true});
+        dir += '/' + req.session.user.user_id;
+        try {
+          fs.mkdirSync(dir,{recursive:true});
+        } catch (err) {
+          if(err.code !== 'EEXIST') throw err;
+        }
+      } catch (err) {
+        if(err.code !== 'EEXIST') throw err;
+      }
+    } catch(err){
       if(err.code !== 'EEXIST') throw err;
     }
-    cb(null, './uploads/studentUploads/'+ req.session.user.user_id);
+    assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,dir);
+    cb(null,dir);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname + "-" + Date.now() + path.extname(file.originalname));
@@ -119,7 +135,16 @@ module.exports.uploadFile = function(req, res, next) {
       }
       else {
         console.log(req.file);
-        res.end();
+        courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
+        .then(courses => {
+          res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+          res.render('assignments', {
+            page: 'Assignments',
+            courses: courses,
+            success: "Assignment submitted successfully"
+          });
+          res.location('/assignments');
+        })
       }
     }
   });

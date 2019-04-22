@@ -1,4 +1,4 @@
-mixin assignmentPreview(title,due,description,id,points,grade,submitted,feedback,returned,materials)
+mixin assignmentPreview(title,due,description,assignmentId,courseId,points,grade,submitted,feedback,returned,materials)
     h3  #{title}
     hr
     div 
@@ -7,7 +7,7 @@ mixin assignmentPreview(title,due,description,id,points,grade,submitted,feedback
     div #{description}
     div 
         if materials
-            a.red-link(href=`uploads/assignmentInfoUploads/${id}` target="_blank") Materials
+            a.red-link(href=`uploads/assignmentInfoUploads/${assignmentId}` target="_blank") Materials
     div
         strong Points Possible: 
         span #{points}
@@ -34,7 +34,9 @@ mixin assignmentPreview(title,due,description,id,points,grade,submitted,feedback
             a(href="returned" target="_blank")
         else
             span None
-    form.mt-2.no-gutters(form action="./upload" enctype="multipart/form-data" method="POST")
+    form.mt-2.no-gutters(form action="../assignments/upload" enctype="multipart/form-data" method="POST")
+        input(type="hidden" name="assignmentId" value= `${assignmentId}`)
+        input(type="hidden" name="courseId" value= `${courseId}`)
         .form-row
         .col
             input.form-control-file(name="assignmentFile" type="file" placeholder="Upload Files..." required)

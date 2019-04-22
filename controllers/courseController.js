@@ -39,9 +39,11 @@ module.exports.getAssignments = function(req, res, next) {
         assignmentModel.retrieveUserPastAssignmentsForCourse(req.session.user.user_id, req.params.courseId)
           .then(pastAssignments => {
             if(req.params.getSection == "true") {
-              res.render('partials/assignmentSection', {currentAssignments: currentAssignments, pastAssignments: pastAssignments});
+              var courseId = parseInt(req.params.courseId);
+              res.render('partials/assignmentSection', {currentAssignments: currentAssignments, pastAssignments: pastAssignments, courseId: courseId});
             } else {
-              res.render('partials/assignmentList', {currentAssignments: currentAssignments, pastAssignments: pastAssignments});
+              var courseId = parseInt(req.params.courseId);
+              res.render('partials/assignmentList', {currentAssignments: currentAssignments, pastAssignments: pastAssignments,courseId: courseId});
             }
           })
           .catch(err => {
