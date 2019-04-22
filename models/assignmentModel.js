@@ -81,6 +81,14 @@ const insertAssignment = function(user_id, assignment_id, filePath) {
     });
 }
 
+/**
+ *  Delete assignment from submitted assignments
+ */
+const deleteAssignment = function(user_id, assignment_id) {
+    return connection.task('deleteAssignment', function(t) {
+        return t.none('delete from submitted_assignments where student_id = $1 and assignment_id = $2;', [user_id, assignment_id]);
+    });
+}
 
 
 module.exports = {
@@ -91,5 +99,6 @@ module.exports = {
     retrieveUserCurrentAssignmentsForCourse,
     retrieveUserPastAssignmentsForCourse,
     retrieveAssignmentDetails,
-    insertAssignment
+    insertAssignment,
+    deleteAssignment
   }

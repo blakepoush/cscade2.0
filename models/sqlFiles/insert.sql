@@ -115,17 +115,33 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
               
               -- Java App dev
-			        (15,'Homework 1', 1,null, '', 30, '2019-04-08 01:00:00'),
-              (31, 'Homework 2', 1, 'Strategy Pattern',null, 30,'2019-04-13 01:00:00' ),
-              (32, 'Homework 3', 1, 'Observer Pattern',null, 30,'2019-04-25 01:00:00' ),
-              (16,'Quiz 1', 3,'Quiz on April 21', null, 5, '2019-04-21 12:30:00'),
-			        (17,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23 12:30:00'),
+			        (15,'Homework 1', 1,null, '', 30, '2019-02-15 01:00:00'),
+              (31, 'Homework 2', 1, 'Strategy Pattern',null, 30,'2019-02-26 01:00:00' ),
+              (16,'Quiz 1', 3,'Quiz on March 1', null, 5, '2019-03-01 12:30:00'),
+              (17,'Exam 1', 2,'Exam on March 6', null, 100, '2019-03-06 12:30:00'),
+              (32, 'Homework 3', 1, 'Observer Pattern',null, 30,'2019-03-15 01:00:00' ),
+              (45, 'Homework 4', 1, 'Adaptor',null, 25,'2019-03-26 01:00:00' ),
+              (46,'Quiz 2', 3,'Quiz on March 26', null, 5, '2019-03-26 12:30:00'),
+			        (47,'Exam 2', 2,'Exam on April 1', null, 100, '2019-04-01 12:30:00'),
+              (48,'Quiz 3', 3,'Quiz on April 15', null, 5, '2019-04-15 12:30:00'),
+              (49,'Exam 3', 2,'Exam on April 25', null, 100, '2019-04-25 12:30:00'),
+              (50, 'Homework 5', 1, 'Decorator',null, 25,'2019-04-26 01:00:00' ),
+
               
               -- Computer Networks
-			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-04-9 01:00:00'),
-              (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-04-15 01:00:00'),
-              (33,'Homework 3', 1,'FTP over TCP', null, 100, '2019-04-19 01:00:00'),
-              (20,'Exam 1', 2,'Exam on April 23', null, 100, '2019-04-23 08:00:00'),
+			        (18,'Homework 1', 1,'Implement Echo & Time Server over TCP', null, 100, '2019-03-9 01:00:00'),
+              (19,'Homework 2', 1,'Local DNS server over UDP', null, 100, '2019-03-15 01:00:00'),
+              (33,'Homework 3', 1,'FTP over TCP', null, 100, '2019-03-19 01:00:00'),
+              (20,'Exam 1', 2,'Exam on March 23', null, 100, '2019-03-23 08:00:00'),
+              (51,'Homework 4', 1,'Review Questions ch 4', null, 100, '2019-04-6 01:00:00'),
+              (52,'Homework 5', 1,'Review Questions ch 5', null, 100, '2019-04-15 01:00:00'),
+              (53,'Homework 6', 1,'Review Questions ch 6', null, 100, '2019-04-17 01:00:00'),
+              (54,'Exam 2', 2,'Exam on April 18', null, 100, '2019-04-18 08:00:00'),
+              (55,'Homework 7', 1,'Review Questions ch 8', null, 100, '2019-04-21 01:00:00'),
+              (56,'Homework 8', 1,'Review Questions ch 9', null, 100, '2019-04-25 01:00:00'),
+              (57,'Exam 3', 2,'Exam on April 27', null, 100, '2019-04-27 08:00:00'),
+
+
        
 			  -- Computer Graphics
 			  (21,'01 a: Line pixel error', 1,'Read (x,y) for two points from keyboard; display initial error, delta error for increments 
@@ -140,18 +156,33 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
 			  (25,'02 a: circle pixel error', 1, 'Read (x,y) for center point and radius from keyboard; display initial error. Then loop to display (x, y), 
 				delta error and associated error for each pixel between the two points. (See pdf for example display.)', null, 25, '2019-04-16 01:00:00'),
 				(34,'Exam 1', 2,'Exam on April 12', null, 100, '2019-04-12 14:00:00'),
+        (58,'Edge List', 1,'Build PolygonEdge List', null, 25, '2019-04-17 14:00:00'),
+        (59,'AEL', 1,'Build Active Edge List', null, 25, '2019-04-18 14:00:00'),
+        (60,'Clipping', 1,'Line Clipping and Polygon Clipping algorithm', null, 25, '2019-04-20 14:00:00'),
         (35,'Exam 2', 2,'Exam on April 20', null, 100, '2019-04-20 14:00:00'),
+        (61,'Polygon Fill', 1,'Polygon fill algorithm', null, 25, '2019-04-21 14:00:00'),
+        (62,'z buffer', 1,'Z buffer calculations', null, 25, '2019-04-24 14:00:00'),
+        (63,'Exam 3', 2,'Exam on April 27', null, 100, '2019-04-27 14:00:00'),
 
                -- Mobile App dev 
-			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-04-5 10:00:00'),
-			  (27,'Meeting 2', 4,'Discuss your progress with your app.', null, 100, '2019-04-20 10:00:00'),
-			  (28,'Presentation', 5,'Presentation', null, 100, '2019-04-29 10:00:00'),
+			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-03-5 10:00:00'),
+			  (27,'Meeting 2', 4,'Discuss your progress with your app.', null, 100, '2019-03-20 10:00:00'),
+			  (28,'Presentation', 5,'Presentation', null, 100, '2019-03-29 10:00:00'),
+        (64,'Meeting 3', 4,'Discuss your progress.', null, 100, '2019-04-5 10:00:00'),
+			  (65,'Meeting 4', 4,'Discuss your progress.', null, 100, '2019-04-20 10:00:00'),
+        (66,'Presentation', 5,'Presentation', null, 100, '2019-04-29 10:00:00'),
               
               -- Automata Theory
               (29,'Exam 1', 2,'Exam on March 15', null, 100, '2019-03-08 11:00:00'),
-              (36,'Homework 1', 1,'Finite State', null, 50, '2019-03-20 01:00:00'),
-              (37,'Homework 2', 1,'Automata Theory Questions', null, 50, '2019-04-24 01:00:00'),
-              (38,'Exam 2', 2,'Exam on April 19', null, 100, '2019-04-19 11:00:00'),
+              (37,'Homework 1', 1,'DFA', null, 50, '2019-03-15 01:00:00'),
+              (39,'Homework 2', 1,'NFA', null, 50, '2019-03-20 01:00:00'),
+              (40,'Homework 3', 1,'Grammar', null, 50, '2019-03-26 01:00:00'),
+              (38,'Exam 2', 2,'Exam on April 1', null, 100, '2019-04-1 11:00:00'),
+              (36,'Homework 4', 1,'Finite State', null, 50, '2019-04-12 01:00:00'),
+              (41,'Homework 5', 1,'Automata Theory Questions', null, 50, '2019-04-20 01:00:00'),
+              (42,'Homework 6', 1,'Finite State Questions ', null, 30, '2019-04-24 01:00:00'),
+              (43,'Exam 3', 2,'Exam on April 19', null, 100, '2019-04-19 11:00:00'),
+              (44,'Exam 4', 2,'Exam on April 26', null, 100, '2019-04-26 11:00:00'),
 			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-04-30 11:00:00');
        
        
@@ -225,11 +256,11 @@ INSERT INTO course_assignments(assignment_id, course_id)
               (7, 3113), (8, 3113), (9, 3113),
               (10, 3123), (11, 3123), (12, 3123),
               (13, 3233), (14, 3233), 
-              (15, 4143), (16, 4143), (17, 4143), (31, 4143), (32, 4143),
-              (18, 4313), (19, 4313), (20, 4313), (33, 4313),
-              (21, 4413), (22, 4413), (23, 4413), (24, 4413), (25, 4413), (34, 4413), (35, 4413), 
-              (26, 4613), (27, 4613), (28, 4613),
-              (29, 4723), (30, 4723), (36, 4723), (37, 4723), (38, 4723);
+              (15, 4143), (16, 4143), (17, 4143), (31, 4143), (32, 4143), (45, 4143), (46, 4143), (47, 4143), (48, 4143), (49, 4143), (50, 4143),
+              (18, 4313), (19, 4313), (20, 4313), (33, 4313), (51, 4313), (52, 4313), (53, 4313), (54, 4313), (55, 4313), (56, 4313), (57, 4313),
+              (21, 4413), (22, 4413), (23, 4413), (24, 4413), (25, 4413), (34, 4413), (35, 4413),  (58, 4413),  (59, 4413),  (60, 4413),  (61, 4413),  (62, 4413),  (63, 4413), 
+              (26, 4613), (27, 4613), (28, 4613), (64, 4613), (65, 4613), (66, 4613),
+              (29, 4723), (30, 4723), (36, 4723), (37, 4723), (38, 4723), (39, 4723), (40, 4723), (41, 4723), (42, 4723), (43, 4723), (44, 4723) ;
               
 INSERT INTO GA_create_note(note_id, GA_id)
 	   VALUES 
@@ -274,9 +305,12 @@ INSERT INTO instructor_create_assignment(assignment_id, instructor_id)
 INSERT INTO submitted_assignments(student_id, assignment_id, assignment_filePath, grade, feedBack, feedBack_filepath)
       VALUES -- assignments for student 1
                       (1,15,null,25,'Good Job!', null), (1,18,null, 100, 'Good Job!', null), (1, 21, null, 25, null, null), (1, 29, null, 90, 'Good!', null),
-                      (1, 16, null, 5, null, null), (1, 17, null, null, null, null),  (1,31,null,29,null, null), (1,33,null,80,null, null),  (1,22,null,25,null, null), 
+                      (1, 16, null, 5, null, null), (1, 17, null, 95, null, null), (1, 32, null, 25, null, null),   (1,31,null,29,null, null), (1,33,null,80,null, null),  (1,22,null,25,null, null), 
                       (1,23,null,25,null, null),  (1,24,null,24,null, null),  (1,25,null,23,null, null),  (1,34,null,80,null, null),  (1,35,null,90,'Good Job!', null),
-                      (1,26,null,90,'Good!', null),   (1,27,null,80,null, null),   (1,36,null,40,null, null),  (1,38,null,80,'', null), 
+                      (1,26,null,90,'Good!', null),   (1,27,null,80,null, null),   (1,36,null,40,null, null),  (1,38,null,80,'', null),  (1,39,null,35,null, null),
+                      (1,40,null,45,null, null), (1,41,null,50,null, null), (1,43,null,80,null, null),  (1,45,null,25,null, null), (1,46,null,3,null, null), (1,47,null,90,null, null), 
+                      (1,48,null,4,null, null), (1,51,null,80,null, null),(1,52,null,90,null, null),(1,53,null,85,null, null),(1,54,null,85,null, null),(1,55,null,95,null, null),
+                      (1,58,null,24,null, null),(1,59,null,25,null, null),(1,60,null,23,null, null),(1,61,null,20,null, null),(1,64,null,85,null, null),(1,65,null,95,null, null),
 
                     -- assignments for student 2
                       (2, 26, null, 90, null, null), (2, 15, null, 30, null, null), (2, 18, null, 95, null, null), (2, 21, null, 25, null, null),
