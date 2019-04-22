@@ -1,5 +1,9 @@
 var courseModel = require('../models/courseModel.js');
 var assignmentModel = require('../models/assignmentModel.js');
+/*const bodyParser= require('body-parser')
+const multer = require('multer');
+app.use(bodyParser.urlencoded({extended: true}))
+const path = require('path'); */
 
 /**
  * TODO: confer with others about what other data/functions are needed
@@ -89,35 +93,49 @@ module.exports.getAssignmentInfo = function(req, res, next) {
 }
 
 
-
 /**
- * Get the Assignments Page.
-module.exports.index = function(req, res, next) {
-  if(req.session.user) {
-    assignmentModel.retrieveUserAssignments(req.session.user.user_id)
-    .then(assignments => {
-      res.render('assignments', {
-        page: 'Assignments',
-        courses: courses
-      });
-    })
-  } else {
-    res.render('login', {
-			page: 'Student Login',
-			error: "You must be logged in to access this page."
-		});
+ * Uploads files to studentUploads folder
+ * TODO: find and modify html code for file names and types
+ *          POST form
+ *       make file name either original name or given name (from html) + student id
+ *       decide if any limits should be made for files uploaded
+ * 
+ <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
+   <input type="file" name="myFile" />
+   <input type="submit" value="Upload a file"/>
+</form>
+ * 
+ */
+
+//https://code.tutsplus.com/tutorials/file-upload-with-multer-in-node--cms-32088
+//https://www.youtube.com/watch?v=9Qzmri1WaaE&t=4s
+
+
+/* set storage location 
+const storage = multer.diskStorage({
+  destination: './uploads/studentUploads',
+  filename: function (req, file, cb) {
+    cb(null, file.originalname + "-" + Date.now() + path.extname(file.originalname));
   }
-}
-*/
+});
+ 
+//set upload specs
+const upload = multer({ storage: storage }).single("myFile");
 
-/**
- * TODO: confer with others about 
- *          whether Ajax or base JS to be used
- *          assignments or submitted_assignments table to be used
- *          new function in assignmentMethod for this?
- *       take file path and other relevent data and insert it into previously mentioned table
-module.exports.submitAssignment = function(req, res, next) {
-
-}
-*/
-
+//POST file for upload
+app.post("/upload", (req, res, next) => {
+  upload(req, res, (err) => {
+    if (err) {
+      alert(err);
+    }
+    else {
+      if (!file) {
+        alert("No File Selected.");
+      }
+      else {
+        res.send(file);
+      }
+    }
+  });
+});
+*/ 

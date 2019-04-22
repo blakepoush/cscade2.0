@@ -32,7 +32,6 @@ function idleTimer() {
 	// Show idle timeout warning dialog.
 	function IdleWarning() {
 		alert("Warning, you will soon be logged out due to inactivity.");
-	//});
 	}
 
 	// Logout the user.
