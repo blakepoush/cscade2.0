@@ -91,26 +91,6 @@ module.exports.getAssignmentInfo = function(req, res, next) {
   }
 }
 
-
-/**
- * Uploads files to studentUploads folder
- * TODO: find and modify html code for file names and types
- *          POST form
- *       make file name either original name or given name (from html) + student id
- *       decide if any limits should be made for files uploaded
- * 
- <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
-   <input type="file" name="myFile" />
-   <input type="submit" value="Upload a file"/>
-</form>
- * 
- */
-
-//https://code.tutsplus.com/tutorials/file-upload-with-multer-in-node--cms-32088
-//https://www.youtube.com/watch?v=9Qzmri1WaaE&t=4s
-
-
-//set storage location 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     try{
@@ -125,11 +105,9 @@ const storage = multer.diskStorage({
     cb(null, file.originalname + "-" + Date.now() + path.extname(file.originalname));
   }
 });
- 
-//set upload specs
+
 const upload = multer({ storage: storage }).single("assignmentFile");
 
-//POST file for upload
 module.exports.uploadFile = function(req, res, next) {
   upload(req, res, (err) => {
     if (err) {
