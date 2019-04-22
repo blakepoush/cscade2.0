@@ -12,11 +12,53 @@ module.exports.index = function(req, res, next) {
   if(req.session.user) {
     courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
     .then(courses => {
-      res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-      res.render('assignments', {
-        page: 'Assignments',
-        courses: courses
-       });
+      if(req.params.assignmentId) {
+        courseModel.retrieveCourseID(req.params.assignmentId)
+        .then(courseId => {
+          assignmentModel.retrieveUserCurrentAssignmentsForCourse(req.session.user.user_id, courseId.course_id)
+          .then(currentAssignments => {
+            assignmentModel.retrieveUserPastAssignmentsForCourse(req.session.user.user_id, courseId.course_id)
+              .then(pastAssignments => {
+                var details = {
+                  "title": "Test Assignment",
+                  "duedate": "04-12-19",
+                  "details": "This a test assignment used for testing purposes only!",
+                  "assignment_id": "25",
+                  "points": "40",
+                  "submitted": "test.txt",
+                  "feedback": "Good job, make sure to check your indentation."
+                };
+                res.render('assignments', {
+                  page: 'Assignments',
+                  courses: courses,
+                  currentAssignments: currentAssignments, 
+                  pastAssignments: pastAssignments, 
+                  assignmentId: req.params.assignmentId, 
+                  courseId: courseId.course_id,
+                  details: details
+                });
+              })
+              .catch(err => {
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify({"error": "Errors Retrieving Data"}));
+              });
+          })
+          .catch(err => {
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({"error": "Errorss Retrieving Data"}));
+          });
+        })
+        .catch(err => {
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({"error": "Error Retrieving Data"}));
+        });
+      } else {
+        res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+        res.render('assignments', {
+          page: 'Assignments',
+          courses: courses
+        });
+      }
     });
   } else {
     res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
@@ -49,12 +91,14 @@ module.exports.getAssignmentInfo = function(req, res, next) {
         "points": "40",
         "submitted": "test.txt",
         "feedback": "Good job, make sure to check your indentation."
-      }
+      };
       res.render('partials/assignmentDetails', {details: details});
   } else {
     res.end(JSON.stringify({"error": "You must be logged in to access assignment details!"}));
   }
 }
+
+
 
 /**
  * Get the Assignments Page.

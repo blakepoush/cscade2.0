@@ -27,7 +27,6 @@ function addEvent() {
 function getAssignmentInfo(e) {
   e.preventDefault();
   var id = e.target.getAttribute("data-info");
-  //insertAssignmentInfo("hi");
   ajaxRequest("GET", `/assignments/getAssignmentInfo/${id}`, {}, insertAssignmentInfo);
 }
 

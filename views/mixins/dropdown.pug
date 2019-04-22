@@ -2,6 +2,12 @@ mixin dropdown(courses)
     .row.mb-4
       .col-lg.text-center
         select.form-control#courseSelect
-          option(selected="selected" disabled="disabled") Select Course
+          if courseId
+            option(disabled="disabled") Select Course
+          else
+            option(selected="selected" disabled="disabled") Select Course
           each course in courses
-              option.dropdown-item(href='#' value=course.course_id)= course.name
+              if courseId && courseId == course.course_id
+                option.dropdown-item(href='#' value=course.course_id selected)= course.name
+              else
+                option.dropdown-item(href='#' value=course.course_id)= course.name
