@@ -13,30 +13,29 @@ module.exports.index = function(req, res, next) {
     courseModel.retrieveCourses_ofStudent(req.session.user.user_id)
     .then(courses => {
       if(req.params.assignmentId) {
+        var assignmentId = parseInt(req.params.assignmentId);
         courseModel.retrieveCourseID(req.params.assignmentId)
         .then(courseId => {
           assignmentModel.retrieveUserCurrentAssignmentsForCourse(req.session.user.user_id, courseId.course_id)
           .then(currentAssignments => {
             assignmentModel.retrieveUserPastAssignmentsForCourse(req.session.user.user_id, courseId.course_id)
               .then(pastAssignments => {
-                var details = {
-                  "title": "Test Assignment",
-                  "duedate": "04-12-19",
-                  "details": "This a test assignment used for testing purposes only!",
-                  "assignment_id": "25",
-                  "points": "40",
-                  "submitted": "test.txt",
-                  "feedback": "Good job, make sure to check your indentation."
-                };
-                res.render('assignments', {
-                  page: 'Assignments',
-                  courses: courses,
-                  currentAssignments: currentAssignments, 
-                  pastAssignments: pastAssignments, 
-                  assignmentId: req.params.assignmentId, 
-                  courseId: courseId.course_id,
-                  details: details
-                });
+                assignmentModel.retrieveAssignmentDetails(req.session.user.user_id, assignmentId)
+                  .then(details => {
+                    res.render('assignments', {
+                      page: 'Assignments',
+                      courses: courses,
+                      currentAssignments: currentAssignments, 
+                      pastAssignments: pastAssignments, 
+                      assignmentId: req.params.assignmentId, 
+                      courseId: courseId.course_id,
+                      details: details[0]
+                    });
+                  })
+                  .catch(err => {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.end(JSON.stringify(err));
+                  });
               })
               .catch(err => {
                 res.setHeader('Content-Type', 'application/json');
@@ -74,25 +73,16 @@ module.exports.index = function(req, res, next) {
  */
 module.exports.getAssignmentInfo = function(req, res, next) {
   if(req.session.user) {
-    /*assignmentModel.retrieveAssignment_info(req.session.user.user_id, req.params.assignmentId)
+    var assignmentId = parseInt(req.params.assignmentId);
+    assignmentModel.retrieveAssignmentDetails(req.session.user.user_id, assignmentId)
       .then(details => {
-        res.render('partials/assignmentDetails', {details: details});
+        res.render('partials/assignmentDetails', {details: details[0]});
+        //res.end(JSON.stringify(details[0]));
       })
       .catch(err => {
         res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({"error": "Error Retrieving Data"}));
-      });*/
-      //details.title,details.duedate,details.details,details.assignment_id,details.points,details.submitted,details.feedback
-      var details = {
-        "title": "Test Assignment",
-        "duedate": "04-12-19",
-        "details": "This a test assignment used for testing purposes only!",
-        "assignment_id": "25",
-        "points": "40",
-        "submitted": "test.txt",
-        "feedback": "Good job, make sure to check your indentation."
-      };
-      res.render('partials/assignmentDetails', {details: details});
+        res.end(JSON.stringify(err));
+      });
   } else {
     res.end(JSON.stringify({"error": "You must be logged in to access assignment details!"}));
   }

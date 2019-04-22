@@ -1,2 +1,5 @@
 include ../mixins/assignmentPreview
-+assignmentPreview(details.title,details.duedate,details.details,details.assignment_id,details.points,details.submitted,details.feedback)
+if details
+  +assignmentPreview(details.title,details.duedate,details.details,details.assignment_id,details.maxpoints,details.grade,details.submitted,details.feedback_message,details.feedback_filepath,details.materials)
+else
+  div No Details Available.

@@ -19,8 +19,10 @@ function insertAssignments(data) {
 function addEvent() {
   let events = document.getElementsByClassName("assignmentInfo");
   console.log(events);
-  for(var i = 0; i < events.length; i++) {
-    events[i].addEventListener("click", getAssignmentInfo);
+  if(events) {
+    for(var i = 0; i < events.length; i++) {
+      events[i].addEventListener("click", getAssignmentInfo);
+    }
   }
 }
 
@@ -34,3 +36,5 @@ function insertAssignmentInfo(data) {
   console.log(data);
   document.getElementById("detailsContainer").innerHTML = data;
 }
+
+addEvent();
