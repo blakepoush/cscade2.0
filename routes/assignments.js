@@ -10,7 +10,7 @@ var assignmentController = require("../controllers/assignmentController");
 
 // Get Assignments Page
 router.get('/', assignmentController.index);
-router.get('/assignments/:assignmentId', assignmentController.index);
+router.get('/:assignmentId', assignmentController.index);
 router.get('/getAssignmentInfo/:assignmentId', assignmentController.getAssignmentInfo);
 
 module.exports = router;

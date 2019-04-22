@@ -14,7 +14,10 @@ block content
       .col
         h2#courseHeader
     .row   
-      .col-lg-5.mb-4#assignmentContainer
-      .col-lg-2
-      .col-lg-5.mb-4#detailsContainer
-        //+assignmentPreview('Singly Linked List','Tuesday','Create the insert function for a singly linked list',4,20,0,0)
+      if assignmentId
+        include partials/assignmentSection
+      else
+        .col-lg-5.mb-4#assignmentContainer
+        .col-lg-2
+        .col-lg-5.mb-4#detailsContainer
+         
