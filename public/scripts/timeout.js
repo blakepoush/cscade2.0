@@ -8,6 +8,7 @@ function idleTimer() {
 	// Add event listners for clicking the page or moving the mouse over the page
 	body.addEventListener("click", ResetTimers);
 	body.addEventListener("mousemove", ResetTimers);
+	window.addEventListener("scroll", ResetTimers);
 
 	var warningTimer;
 	var timeoutTimer;
