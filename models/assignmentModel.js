@@ -66,10 +66,11 @@ const retrieveUserPastAssignmentsForCourse = function(user_id, course_id) {
  */
 const retrieveAssignmentDetails = function(user_id, assignment_id) {
     return connection.task('retrieveAssignmentDetails', function(t) {
-        const assignment = t.any('select assignments.assignment_id, title, dueDate, details, assignments.filePath As Materials, maxPoints, grade, feedBack As feedBack_Message, feedBack_filepath, assignment_filePath from assignments, submitted_assignments where assignments.assignment_id = submitted_assignments.assignment_id and student_id = $1 and submitted_assignments.assignment_id = $2;', [user_id, assignment_id]);
+        const assignment = t.any('(select assignment_id,title, dueDate, details, filePath As Materials, maxPoints, null as grade, null as feedBack_message, null as feedBack_filepath, null as assignment_filePath from assignments where assignment_id = $2) union (select assignments.assignment_id, title, dueDate, details, assignments.filePath As Materials, maxPoints, grade, feedBack as feedBack_message, feedBack_filepath, assignment_filePath from assignments, submitted_assignments where assignments.assignment_id = submitted_assignments.assignment_id and student_id =$1 and assignments.assignment_id = $2) order by assignment_filePath ASC fetch first 1 rows only;', [user_id, assignment_id]);
         return assignment;
     });
 }
+
 
 /**
  * Insert assignment into submitted assignments
@@ -98,14 +99,6 @@ const checkSubmission = function(user_id, course_id) {
         return submissions; 
     });
 }
-
-checkSubmission(1, 4143)
-  .then(submissions=> {
-      console.log(submissions);
-  })
-  .catch(error =>{
-      console.log("error");
-  });
 
 
 module.exports = {
