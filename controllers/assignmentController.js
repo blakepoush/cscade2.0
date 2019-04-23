@@ -114,6 +114,7 @@ const storage = multer.diskStorage({
     } catch(err){
       if(err.code !== 'EEXIST') throw err;
     }
+    assignmentModel.deleteAssignment(req.session.user.user_id,req.body.assignmentId);
     assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,dir);
     cb(null,dir);
   },

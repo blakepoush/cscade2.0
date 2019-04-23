@@ -96,8 +96,8 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (3,'Test 1', 2,'test over chapters 1-3', null, 100, '2019-04-20'),
               
               -- OOP
-              (4,'Homework 1', 1,'Singly-Linked List', '', 25, '2019-04-6 01:00:00'),
-              (5,'Quiz 1', 3,'Inheritance', null, 10, '2019-04-7'),
+              (4,'Homework 1', 1,'Singly-Linked List', '', 25, '2019-05-6 01:00:00'),
+              (5,'Quiz 1', 3,'Inheritance', null, 10, '2019-05-7'),
               (6,'Exam 1', 2,'Exam on April 16', null, 100, '2019-04-16'),
               
               -- ADV data structures
