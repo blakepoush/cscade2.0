@@ -25,10 +25,11 @@ const retrieveUserAssignments = function(user_id) {
  */
 const retrieveUserCurrentAssignments = function(user_id) {
     return connection.task('retrieveUserCurrentAssignments', function(t) {
-        const assignments = t.any('select * from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate >= now()', [user_id]);
+        const assignments = t.any('select * , isSubmitted($1, assignment_id) from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate >= now()', [user_id]);
         return assignments;
     });
 }
+
 
 
 /**
@@ -36,10 +37,12 @@ const retrieveUserCurrentAssignments = function(user_id) {
  */
 const retrieveUserPastAssignments = function(user_id) {
     return connection.task('retrieveUserPastAssignments', function(t) {
-        const assignments = t.any('select * from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate < now()', [user_id]);
+        const assignments = t.any('select * , isSubmitted($1, assignment_id) from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate < now()', [user_id]);
         return assignments;
     });
 }
+
+
 
 /**
  * Retrieve all of the user's current assignments for a course.
