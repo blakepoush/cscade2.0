@@ -2,7 +2,8 @@ var courseModel = require('../models/courseModel.js');
 var assignmentModel = require('../models/assignmentModel.js');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
+const mkdirp = require('mkdirp');
+
 /*
 /**
  * TODO: confer with others about what other data/functions are needed
@@ -96,36 +97,36 @@ module.exports.getAssignmentInfo = function(req, res, next) {
 
 var date = Date.now();
 
-const storage = multer.diskStorage({
+var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     var prepend = "./uploads";
     var innerFilePath = '/studentUploads/'+ req.body.courseId.toString();
     var dir = prepend + innerFilePath;
-    try{
-      fs.mkdirSync(dir,{recursive:true});
-      dir += '/'+ req.body.assignmentId.toString();
-      innerFilePath += '/'+ req.body.assignmentId.toString();
-      try {
-        fs.mkdirSync(dir,{recursive:true});
-        dir += '/' + req.session.user.user_id;
-        innerFilePath += '/' + req.session.user.user_id;
-        try {
-          fs.mkdirSync(dir,{recursive:true});
-        } catch (err) {
-          if(err.code !== 'EEXIST') throw err;
-        }
-      } catch (err) {
-        if(err.code !== 'EEXIST') throw err;
-      }
-    } catch(err){
-      if(err.code !== 'EEXIST') throw err;
-    }
+    dir += '/'+ req.body.assignmentId.toString();
+    dir += '/' + req.session.user.user_id;
+    innerFilePath += '/'+ req.body.assignmentId.toString();
+    innerFilePath += '/' + req.session.user.user_id;
     var fileName = date + path.extname(file.originalname);
     var filePath = innerFilePath + "/" + fileName;
-    assignmentModel.deleteAssignment(req.session.user.user_id,req.body.assignmentId);
-    assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,filePath);
-    cb(null,dir);
-  },
+    
+
+    mkdirp(dir,(err)=>{
+      if (err) console.log(err)
+      else{
+        assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,filePath).then(() =>{
+        }).catch(err =>{
+          assignmentModel.deleteAssignment(req.session.user.user_id,req.body.assignmentId).then(() =>{
+            assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,filePath).catch(err =>{
+              console.log(err);
+            });
+          }).catch(err => {
+            console.log(err);
+          });
+        }); 
+      }
+    });
+    setTimeout(()=>{cb(null,dir)},1000);
+    },
   filename: function (req, file, cb) {
     cb(null, date + path.extname(file.originalname));
   }
@@ -151,9 +152,12 @@ module.exports.uploadFile = function(req, res, next) {
             page: 'Assignments',
             courses: courses,
             success: "Assignment submitted successfully"
-          });
+          })
           res.location('/assignments');
-        })
+        }).catch(err => {
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({"error": "Error Uploading File"}));
+        });
       }
     }
   });
