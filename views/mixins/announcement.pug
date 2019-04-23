@@ -1,4 +1,9 @@
-mixin announcement(date, body)
-    .announcement.card.lg-row.mt-2
-        .card-body.p-2
-            p.card-text.mb-0.font-weight-bold #{body}
+mixin announcement(id, date, title, body)
+    .card
+        -var annId = `heading${id}`;
+        -var colId = `collapse${id}`;
+        .card-header(id=`${annId}`)
+            h5.mb-0
+                button.btn.btn-link.white-link.collapsed(type='button', data-toggle='collapse', data-target=`#${colId}`, aria-expanded='false', aria-controls=`${colId}`) #{title}
+        .collapse(id=`${colId}`, aria-labelledby=`${annId}`, data-parent='#announcementContainer')
+            .card-body #{body}

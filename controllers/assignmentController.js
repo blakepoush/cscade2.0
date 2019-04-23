@@ -81,8 +81,8 @@ module.exports.getAssignmentInfo = function(req, res, next) {
       .then(details => {
         courseModel.retrieveCourseID(req.params.assignmentId)
         .then(courseId => {
-          //res.render('partials/assignmentDetails', {details: details[0],courseId: courseId.course_id});
-          res.end(JSON.stringify(details));
+          res.render('partials/assignmentDetails', {details: details[0],courseId: courseId.course_id});
+          //res.end(JSON.stringify(details));
         })
       })
       .catch(err => {

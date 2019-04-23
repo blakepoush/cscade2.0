@@ -145,6 +145,7 @@ primary key(name)
 
 create table announcements(
 id	int,
+title text,
 body text,
 dateCreated date default CURRENT_DATE,
 dateExpired date,

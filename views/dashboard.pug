@@ -14,5 +14,7 @@ block content
         if announcements.length
           h2 Announcements
           hr
-          each item in announcements  
-            +announcement(null,item.body)
+          #announcementContainer.accordion
+            each item in announcements 
+              +announcement(item.id,null,item.title,item.body)
+
