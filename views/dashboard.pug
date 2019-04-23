@@ -9,7 +9,7 @@ block content
         h2 Current Assignments
         hr
         each item in assignments
-            +assignment(item.name,item.title,item.duedate,true,item.assignment_id)
+            +assignment(item.name,item.title,item.duedate,item.submitted,item.assignment_id)
       .col-lg-6.mt-4
         if announcements.length
           h2 Announcements

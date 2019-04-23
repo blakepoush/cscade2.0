@@ -20,7 +20,7 @@ mixin assignmentPreview(title,due,description,assignmentId,courseId,points,grade
             span None
     div
         if(submitted)    
-            a.red-link(href=`uploads/assignmentInfoUploads/${submitted}` target="_blank") Submitted Files
+            a.red-link(href=`${submitted}` target="_blank") Submitted Files
         else
             b No Submitted Files
     div

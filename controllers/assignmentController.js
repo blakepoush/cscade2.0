@@ -25,6 +25,7 @@ module.exports.index = function(req, res, next) {
               .then(pastAssignments => {
                 assignmentModel.retrieveAssignmentDetails(req.session.user.user_id, assignmentId)
                   .then(details => {
+                    //res.end(JSON.stringify(details[0]));
                     res.render('assignments', {
                       page: 'Assignments',
                       courses: courses,
@@ -82,7 +83,6 @@ module.exports.getAssignmentInfo = function(req, res, next) {
         courseModel.retrieveCourseID(req.params.assignmentId)
         .then(courseId => {
           res.render('partials/assignmentDetails', {details: details[0],courseId: courseId.course_id});
-          //res.end(JSON.stringify(details));
         })
       })
       .catch(err => {
@@ -94,15 +94,21 @@ module.exports.getAssignmentInfo = function(req, res, next) {
   }
 }
 
+var date = Date.now();
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    var dir = './uploads/studentUploads/'+ req.body.courseId.toString();
+    var prepend = "./uploads";
+    var innerFilePath = '/studentUploads/'+ req.body.courseId.toString();
+    var dir = prepend + innerFilePath;
     try{
       fs.mkdirSync(dir,{recursive:true});
       dir += '/'+ req.body.assignmentId.toString();
+      innerFilePath += '/'+ req.body.assignmentId.toString();
       try {
         fs.mkdirSync(dir,{recursive:true});
         dir += '/' + req.session.user.user_id;
+        innerFilePath += '/' + req.session.user.user_id;
         try {
           fs.mkdirSync(dir,{recursive:true});
         } catch (err) {
@@ -114,12 +120,14 @@ const storage = multer.diskStorage({
     } catch(err){
       if(err.code !== 'EEXIST') throw err;
     }
+    var fileName = date + path.extname(file.originalname);
+    var filePath = innerFilePath + "/" + fileName;
     assignmentModel.deleteAssignment(req.session.user.user_id,req.body.assignmentId);
-    assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,dir);
+    assignmentModel.insertAssignment(req.session.user.user_id,req.body.assignmentId,filePath);
     cb(null,dir);
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname + "-" + Date.now() + path.extname(file.originalname));
+    cb(null, date + path.extname(file.originalname));
   }
 });
 

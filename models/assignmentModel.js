@@ -25,7 +25,7 @@ const retrieveUserAssignments = function(user_id) {
  */
 const retrieveUserCurrentAssignments = function(user_id) {
     return connection.task('retrieveUserCurrentAssignments', function(t) {
-        const assignments = t.any('select * , isSubmitted($1, assignment_id) from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate >= now()', [user_id]);
+        const assignments = t.any('select * , isSubmitted($1, assignment_id) as submitted from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate >= now()', [user_id]);
         return assignments;
     });
 }
@@ -37,7 +37,7 @@ const retrieveUserCurrentAssignments = function(user_id) {
  */
 const retrieveUserPastAssignments = function(user_id) {
     return connection.task('retrieveUserPastAssignments', function(t) {
-        const assignments = t.any('select * , isSubmitted($1, assignment_id) from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate < now()', [user_id]);
+        const assignments = t.any('select * , isSubmitted($1, assignment_id) as submitted from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and dueDate < now()', [user_id]);
         return assignments;
     });
 }
@@ -49,7 +49,7 @@ const retrieveUserPastAssignments = function(user_id) {
  */
 const retrieveUserCurrentAssignmentsForCourse = function(user_id, course_id) {
     return connection.task('retrieveUserCurrentAssignmentsForCourse', function(t) {
-        const assignments = t.any('select * from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and course_id = $2 and dueDate >= now()', [user_id, course_id]);
+        const assignments = t.any('select * , isSubmitted($1, assignment_id) as submitted from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and course_id = $2 and dueDate >= now()', [user_id, course_id]);
         return assignments;
     });
 }
@@ -59,7 +59,7 @@ const retrieveUserCurrentAssignmentsForCourse = function(user_id, course_id) {
  */
 const retrieveUserPastAssignmentsForCourse = function(user_id, course_id) {
     return connection.task('retrieveUserPastAssignmentsForCourse', function(t) {
-        const assignments = t.any('select * from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and course_id = $2 and dueDate < now()', [user_id, course_id]);
+        const assignments = t.any('select * , isSubmitted($1, assignment_id) as submitted from assignments natural join course_assignments natural join enrolled natural join courses where student_id = $1 and course_id = $2 and dueDate < now()', [user_id, course_id]);
         return assignments;
     });
 }
