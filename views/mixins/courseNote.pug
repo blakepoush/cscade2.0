@@ -2,6 +2,7 @@ mixin courseNote(name, description, date_posted, filepath)
   h3= name
   div.mb-2
     strong Posted: 
+    - date_posted = date_posted.toString().substr(0,24)
     span= date_posted
   div.mb-2= description
   if filepath

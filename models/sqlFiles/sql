@@ -1,0 +1,5 @@
+psql -f dropTables.sql -d mydb
+psql -f dropTables.sql -d mydb
+psql -f createTables.sql -d mydb
+psql -f createFunctions.sql -d mydb
+psql -f insert.sql -d mydb
