@@ -307,11 +307,11 @@ INSERT INTO submitted_assignments(student_id, assignment_id, assignment_filePath
                       (1,15,null,25,'Good Job!', null), (1,18,null, 100, 'Good Job!', null), (1, 21, null, 25, null, null), (1, 29, null, 90, 'Good!', null),
                       (1, 16, null, 5, null, null), (1, 17, null, 95, null, null), (1, 32, null, 25, null, null),   (1,31,null,29,null, null), (1,33,null,80,null, null),  (1,22,null,25,null, null), 
                       (1,23,null,25,null, null),  (1,24,null,24,null, null),  (1,25,null,23,null, null),  (1,34,null,80,null, null),  (1,35,null,90,'Good Job!', null),
-                      (1,26,null,90,'Good!', null),   (1,27,null,80,null, null),   (1,36,null,40,null, null),  (1,38,null,80,'', null),  (1,39,null,35,null, null),
+                      (1,26,null,90,'Good!', null),   (1,27,null,80,null, null),  (1,28,null,100,'Great Job!', null), (1,36,null,40,null, null),  (1,38,null,80,'', null),  (1,39,null,35,null, null),
                       (1,40,null,45,null, null), (1,41,null,50,null, null), (1,43,null,80,null, null),  (1,45,null,25,null, null), (1,46,null,3,null, null), (1,47,null,90,null, null), 
                       (1,48,null,4,null, null), (1,51,null,80,null, null),(1,52,null,90,null, null),(1,53,null,85,null, null),(1,54,null,85,null, null),(1,55,null,95,null, null),
                       (1,58,null,24,null, null),(1,59,null,25,null, null),(1,60,null,23,null, null),(1,61,null,20,null, null),(1,64,null,85,null, null),(1,65,null,95,null, null),
-
+                      (1,19,null,90,null, null), (1,20,null,95,null, null),  (1,37,null,45,null, null),
                     -- assignments for student 2
                       (2, 26, null, 90, null, null), (2, 15, null, 30, null, null), (2, 18, null, 95, null, null), (2, 21, null, 25, null, null),
 
