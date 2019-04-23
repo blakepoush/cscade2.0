@@ -12,3 +12,4 @@ function servertime(){
     time += (hours > 0) ? " PM" : " AM";
     document.getElementById("serverTime").textContent = date + " - " + time;
 }
+
