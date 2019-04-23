@@ -336,13 +336,13 @@ INSERT INTO course_assignment_types(type_id, course_id, type, weight)
 
 
 -- announcements
-INSERT INTO announcements(id, body, dateExpired)
+INSERT INTO announcements(id, title, body, dateExpired)
       VALUES  
-      (1, 'The Association for Computing Machinery (ACM) student group will meet this
+      (1, 'ACM Meeting','The Association for Computing Machinery (ACM) student group will meet this
       Friday, April 26 at 12:00pm in CSM 211 during {code|friday}.
       Everyone is invited to attend.  Come participate in your CS student club!','2019-04-26' ),
 
-      (2,'Internship opportunity with Ritter Communications. If you are interested in this position, please email Dr. Su with your resume by April 25.', '2019-04-28');
+      (2,'Internship Opportunity', 'Internship opportunity with Ritter Communications. If you are interested in this position, please email Dr. Su with your resume by April 25.', '2019-04-28');
 
 
 -- useful links

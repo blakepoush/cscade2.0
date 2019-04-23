@@ -117,10 +117,18 @@ nav{
   color: var(--cscade-red);
 }
 
+.white-link {
+  color: white !important;
+}
+
+.white-link:hover {
+  color: white !important;
+}
+
 .card{
   background: var(--cscade-red) !important;
   color: white;
-  min-height: 104px;
+  /*min-height: 104px;*/
 }
 
 .assignment i{
