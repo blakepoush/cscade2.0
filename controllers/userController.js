@@ -17,9 +17,27 @@ var announcementModel = require('../models/announcementModel.js');
  * Retrieve Login Page. (GET)
  */
 module.exports.index = function(req, res, next) {
-  res.render('login', {
-		page: 'Student Login'
-	});
+  if(req.session.user) {
+		announcementModel.retrieveAnnouncements()
+			.then(announcements => {
+				assignmentModel.retrieveUserCurrentAssignments(req.session.user.user_id) 
+				.then(assignments => {
+					res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+					res.render('dashboard', {
+						page: 'Dashboard',
+						assignments: assignments,
+						announcements: announcements
+					});
+				})
+				.catch(error => {
+					console.log("Retrieving Assignment Error");
+				});
+			});
+  } else {
+		res.render('login', {
+			page: 'Student Login'
+		});
+	}
 };
 
 /**

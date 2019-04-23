@@ -10,7 +10,7 @@ mixin assignmentPreview(title,due,description,assignmentId,courseId,points,grade
     div #{description}
     div 
         if materials
-            a.red-link(href=`uploads/assignmentInfoUploads/${assignmentId}` target="_blank") Materials
+            a.red-link(href=`${materials}` target="_blank") Materials
     div
         strong Points Possible: 
         span #{points}

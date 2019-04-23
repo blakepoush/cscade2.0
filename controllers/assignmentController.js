@@ -26,6 +26,7 @@ module.exports.index = function(req, res, next) {
                 assignmentModel.retrieveAssignmentDetails(req.session.user.user_id, assignmentId)
                   .then(details => {
                     //res.end(JSON.stringify(details[0]));
+                    res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
                     res.render('assignments', {
                       page: 'Assignments',
                       courses: courses,
