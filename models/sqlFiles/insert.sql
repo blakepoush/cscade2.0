@@ -116,7 +116,7 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               
               -- Java App dev
 			        (15,'Homework 1', 1,null, null, 30, '2019-02-15 01:00:00'),
-              (31, 'Homework 2', 1, 'Strategy Pattern','/uploads/assignmentMaterials/4143/hw2_material.docx', 30,'2019-02-26 01:00:00' ),
+              (31, 'Homework 2', 1, 'Strategy Pattern','/assignmentMaterials/4143/hw2_material.docx', 30,'2019-02-26 01:00:00' ),
               (16,'Quiz 1', 3,'Quiz on March 1', null, 5, '2019-03-01 12:30:00'),
               (17,'Exam 1', 2,'Exam on March 6', null, 100, '2019-03-06 12:30:00'),
               (32, 'Homework 3', 1, 'Observer Pattern','/assignmentMaterials/4143/hw3_material.docx', 30,'2019-03-15 01:00:00' ),
