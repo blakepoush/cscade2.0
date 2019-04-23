@@ -71,7 +71,6 @@ const retrieveAssignmentDetails = function(user_id, assignment_id) {
     });
 }
 
-
 /**
  * Insert assignment into submitted assignments
  */
@@ -90,6 +89,24 @@ const deleteAssignment = function(user_id, assignment_id) {
     });
 }
 
+/**
+ *  Check if the assignments for a course are submitted
+ */
+const checkSubmission = function(user_id, course_id) {
+    return connection.task('checkSubmission', function(t) {
+        const submissions = t.any('select assignment_id, isSubmitted($1, assignment_id) from assignments where assignment_id IN (select assignment_id from course_assignments where course_id = $2);', [user_id, course_id]);
+        return submissions; 
+    });
+}
+
+checkSubmission(1, 4143)
+  .then(submissions=> {
+      console.log(submissions);
+  })
+  .catch(error =>{
+      console.log("error");
+  });
+
 
 module.exports = {
     retrieveCourses_assignments,
@@ -100,5 +117,6 @@ module.exports = {
     retrieveUserPastAssignmentsForCourse,
     retrieveAssignmentDetails,
     insertAssignment,
-    deleteAssignment
+    deleteAssignment,
+    checkSubmission
   }

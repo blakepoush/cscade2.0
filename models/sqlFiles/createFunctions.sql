@@ -38,19 +38,41 @@ CREATE OR REPLACE FUNCTION overall(userID integer, courseID integer)
 RETURNS float AS $overall$  
 declare  
     overall float;  
+    weight_total float;
     query_cursor2 CURSOR FOR select assignment_avg(userID, courseID, type_id), weight  from course_assignment_types where course_id = courseID;
     rec wAvg;
 BEGIN  
    overall := 0.0; 
+   weight_total := 0.0;
    OPEN query_cursor2;
-   FETCH query_cursor2 INTO rec.assignmentAvg, rec.weight;    -- Read a row from the cursor
+   FETCH query_cursor2 INTO rec.assignmentAvg, rec.weight;    
    WHILE FOUND LOOP
-        if rec.assignmentAvg is null then overall := overall + rec.weight;
-        else overall := overall + rec.assignmentAvg * (rec.weight * .01);
-        end if;
-        FETCH query_cursor2 INTO rec.assignmentAvg, rec.weight;  -- Keep on reading rows
+    if rec.assignmentAvg is not null then
+    weight_total := weight_total + (rec.weight * .01);
+    overall := overall + rec.assignmentAvg * (rec.weight * .01);
+    end if; 
+    FETCH query_cursor2 INTO rec.assignmentAvg, rec.weight;  
    END LOOP;
    CLOSE query_cursor2;
+   overall := overall / weight_total;
    RETURN overall;  
 END;  
 $overall$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION isSubmitted(userID integer, assignmentID integer)  
+RETURNS text AS $result$  
+declare  
+    query_cursor3 CURSOR FOR select student_id from submitted_assignments where assignment_id = assignmentID and student_id = userID;
+    result text;
+    student_id int;
+BEGIN  
+   result := false;
+   OPEN query_cursor3;
+   FETCH query_cursor3 INTO student_id;    
+   IF FOUND then
+	 result := true; 
+   end if; 
+   CLOSE query_cursor3;
+   RETURN result;  
+END;  
+$result$ LANGUAGE plpgsql;
