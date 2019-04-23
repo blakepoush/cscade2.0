@@ -4,6 +4,8 @@ mixin assignmentPreview(title,due,description,assignmentId,courseId,points,grade
     div 
         b Due:
         - due = due.toString().substr(0,24)
+        - dueDate = new Date(due)
+        - now = new Date()
         span  #{due}
     div #{description}
     div 
@@ -35,12 +37,15 @@ mixin assignmentPreview(title,due,description,assignmentId,courseId,points,grade
             a(href="returned" target="_blank")
         else
             span None
-    form.mt-2.no-gutters(form action="../assignments/upload" enctype="multipart/form-data" method="POST")
-        input(type="hidden" name="assignmentId" value= `${assignmentId}`)
-        input(type="hidden" name="courseId" value= `${courseId}`)
-        .form-row
-        .col
-            input.form-control-file(name="assignmentFile" type="file" placeholder="Upload Files..." required)
-        .form-row.mt-2
-        .col
-            button.btn.red-btn.mt-2(type="submit") Submit
+    if now < dueDate
+        form.mt-2.no-gutters(form action="../assignments/upload" enctype="multipart/form-data" method="POST")
+            input(type="hidden" name="assignmentId" value= `${assignmentId}`)
+            input(type="hidden" name="courseId" value= `${courseId}`)
+            .form-row
+            .col
+                input.form-control-file(name="assignmentFile" type="file" placeholder="Upload Files..." required)
+            .form-row.mt-2
+            .col
+                button.btn.red-btn.mt-2(type="submit") Submit
+    else   
+        div This assignment can no longer be submitted.
