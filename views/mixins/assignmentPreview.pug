@@ -3,6 +3,7 @@ mixin assignmentPreview(title,due,description,assignmentId,courseId,points,grade
     hr
     div 
         b Due:
+        - due = due.toString().substr(0,24)
         span  #{due}
     div #{description}
     div 
