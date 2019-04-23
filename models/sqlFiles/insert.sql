@@ -115,17 +115,17 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
               
               -- Java App dev
-			        (15,'Homework 1', 1,null, '', 30, '2019-02-15 01:00:00'),
-              (31, 'Homework 2', 1, 'Strategy Pattern',null, 30,'2019-02-26 01:00:00' ),
+			        (15,'Homework 1', 1,null, null, 30, '2019-02-15 01:00:00'),
+              (31, 'Homework 2', 1, 'Strategy Pattern','/uploads/assignmentMaterials/4143/hw2_material.docx', 30,'2019-02-26 01:00:00' ),
               (16,'Quiz 1', 3,'Quiz on March 1', null, 5, '2019-03-01 12:30:00'),
               (17,'Exam 1', 2,'Exam on March 6', null, 100, '2019-03-06 12:30:00'),
-              (32, 'Homework 3', 1, 'Observer Pattern',null, 30,'2019-03-15 01:00:00' ),
-              (45, 'Homework 4', 1, 'Adaptor',null, 25,'2019-03-26 01:00:00' ),
+              (32, 'Homework 3', 1, 'Observer Pattern','/assignmentMaterials/4143/hw3_material.docx', 30,'2019-03-15 01:00:00' ),
+              (45, 'Homework 4', 1, 'Adaptor','/assignmentMaterials/4143/hw4_material.docx', 25,'2019-03-26 01:00:00' ),
               (46,'Quiz 2', 3,'Quiz on March 26', null, 5, '2019-03-26 12:30:00'),
 			        (47,'Exam 2', 2,'Exam on April 1', null, 100, '2019-04-01 12:30:00'),
               (48,'Quiz 3', 3,'Quiz on April 15', null, 5, '2019-04-15 12:30:00'),
               (49,'Exam 3', 2,'Exam on April 25', null, 100, '2019-04-25 12:30:00'),
-              (50, 'Homework 5', 1, 'Decorator',null, 25,'2019-04-26 01:00:00' ),
+              (50, 'Homework 5', 1, 'Decorator','/assignmentMaterials/4143/hw5_material.docx', 25,'2019-04-26 01:00:00' ),
 
               
               -- Computer Networks
