@@ -92,27 +92,27 @@ INSERT INTO notes (note_id, name, description, filePath)
 INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoints, dueDate)
 	   VALUES -- Structured Programming
 			        (1,'Homework 1', 1,'I/O (Input/Output)', '', 25, '2019-04-6 01:00:00'),
-              (2,'Homework 2', 1,'Selection', '', 100, '2019-04-15'),
-              (3,'Test 1', 2,'test over chapters 1-3', null, 100, '2019-04-20'),
+              (2,'Homework 2', 1,'Selection', '', 100, '2019-05-15'),
+              (3,'Test 1', 2,'test over chapters 1-3', null, 100, '2019-05-20'),
               
               -- OOP
               (4,'Homework 1', 1,'Singly-Linked List', '', 25, '2019-05-6 01:00:00'),
               (5,'Quiz 1', 3,'Inheritance', null, 10, '2019-05-7'),
-              (6,'Exam 1', 2,'Exam on April 16', null, 100, '2019-04-16'),
+              (6,'Exam 1', 2,'Exam on April 16', null, 100, '2019-05-16'),
               
               -- ADV data structures
               (7,'Quiz 1', 3,'Quiz: skip list', null, 10, '2019-04-5'),
               (8,'Homework 1', 1,'implement skip list', '', 25, '2019-04-8 01:00:00'),
-              (9,'Exam 1', 2,'Exam on April 20', null, 100, '2019-04-20'),
+              (9,'Exam 1', 2,'Exam on April 20', null, 100, '2019-05-20'),
               
               -- Programming Languages
               (10,'Assignment 1', 1,'Review Questions Chapter 1: 1,2,7,8,13,14,15,17,23;', null, 25, '2019-04-5'),
               (11,'Assignment 2', 1,'Review Questions Chapter 2: 3,7,12,15,18,25,26,27,30,31,35;', null, 25, '2019-04-8'),
-              (12,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
+              (12,'Exam 1', 2,'Exam on April 10', null, 100, '2019-05-10'),
               
               -- Operating Systems
               (13,'Assignment 1', 1,'Review Questions', null, 25, '2019-04-7'),
-              (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-04-10'),
+              (14,'Exam 1', 2,'Exam on April 10', null, 100, '2019-05-15'),
               
               -- Java App dev
 			        (15,'Homework 1', 1,null, null, 30, '2019-02-15 01:00:00'),
@@ -124,8 +124,8 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (46,'Quiz 2', 3,'Quiz on March 26', null, 5, '2019-03-26 12:30:00'),
 			        (47,'Exam 2', 2,'Exam on April 1', null, 100, '2019-04-01 12:30:00'),
               (48,'Quiz 3', 3,'Quiz on April 15', null, 5, '2019-04-15 12:30:00'),
-              (49,'Exam 3', 2,'Exam on April 25', null, 100, '2019-04-25 12:30:00'),
-              (50, 'Homework 5', 1, 'Decorator','/assignmentMaterials/4143/hw5_material.docx', 25,'2019-04-26 01:00:00' ),
+              (49,'Exam 3', 2,'Exam on April 25', null, 100, '2019-05-25 12:30:00'),
+              (50, 'Homework 5', 1, 'Decorator','/assignmentMaterials/4143/hw5_material.docx', 25,'2019-05-26 01:00:00' ),
 
               
               -- Computer Networks
@@ -137,9 +137,9 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (52,'Homework 5', 1,'Review Questions ch 5', null, 100, '2019-04-15 01:00:00'),
               (53,'Homework 6', 1,'Review Questions ch 6', null, 100, '2019-04-17 01:00:00'),
               (54,'Exam 2', 2,'Exam on April 18', null, 100, '2019-04-18 08:00:00'),
-              (55,'Homework 7', 1,'Review Questions ch 8', null, 100, '2019-04-21 01:00:00'),
-              (56,'Homework 8', 1,'Review Questions ch 9', null, 100, '2019-04-25 01:00:00'),
-              (57,'Exam 3', 2,'Exam on April 27', null, 100, '2019-04-27 08:00:00'),
+              (55,'Homework 7', 1,'Review Questions ch 8', null, 100, '2019-05-21 01:00:00'),
+              (56,'Homework 8', 1,'Review Questions ch 9', null, 100, '2019-05-25 01:00:00'),
+              (57,'Exam 3', 2,'Exam on April 27', null, 100, '2019-05-27 08:00:00'),
 
 
        
@@ -161,8 +161,8 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
         (60,'Clipping', 1,'Line Clipping and Polygon Clipping algorithm', null, 25, '2019-04-20 14:00:00'),
         (35,'Exam 2', 2,'Exam on April 20', null, 100, '2019-04-20 14:00:00'),
         (61,'Polygon Fill', 1,'Polygon fill algorithm', null, 25, '2019-04-21 14:00:00'),
-        (62,'z buffer', 1,'Z buffer calculations', null, 25, '2019-04-24 14:00:00'),
-        (63,'Exam 3', 2,'Exam on April 27', null, 100, '2019-04-27 14:00:00'),
+        (62,'z buffer', 1,'Z buffer calculations', null, 25, '2019-05-10 14:00:00'),
+        (63,'Exam 3', 2,'Exam on April 27', null, 100, '2019-05-15 14:00:00'),
 
                -- Mobile App dev 
 			  (26,'Meeting 1', 4,'Review over App Design', null, 100, '2019-03-5 10:00:00'),
@@ -170,7 +170,7 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
 			  (28,'Presentation', 5,'Presentation', null, 100, '2019-03-29 10:00:00'),
         (64,'Meeting 3', 4,'Discuss your progress.', null, 100, '2019-04-5 10:00:00'),
 			  (65,'Meeting 4', 4,'Discuss your progress.', null, 100, '2019-04-20 10:00:00'),
-        (66,'Presentation', 5,'Presentation', null, 100, '2019-04-29 10:00:00'),
+        (66,'Presentation', 5,'Presentation', null, 100, '2019-05-15 10:00:00'),
               
               -- Automata Theory
               (29,'Exam 1', 2,'Exam on March 15', null, 100, '2019-03-08 11:00:00'),
@@ -182,8 +182,8 @@ INSERT INTO assignments (assignment_id, title, type, details, filePath, maxPoint
               (41,'Homework 5', 1,'Automata Theory Questions', null, 50, '2019-04-20 01:00:00'),
               (42,'Homework 6', 1,'Finite State Questions ', null, 30, '2019-04-24 01:00:00'),
               (43,'Exam 3', 2,'Exam on April 19', null, 100, '2019-04-19 11:00:00'),
-              (44,'Exam 4', 2,'Exam on April 26', null, 100, '2019-04-26 11:00:00'),
-			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-04-30 11:00:00');
+              (44,'Exam 4', 2,'Exam on April 26', null, 100, '2019-05-12 11:00:00'),
+			        (30,'Final Exam', 3,'Final Exam on April 30', null, 100, '2019-05-15 11:00:00');
        
        
 -- courses
@@ -340,9 +340,9 @@ INSERT INTO announcements(id, title, body, dateExpired)
       VALUES  
       (1, 'ACM Meeting','The Association for Computing Machinery (ACM) student group will meet this
       Friday, April 26 at 12:00pm in CSM 211 during {code|friday}.
-      Everyone is invited to attend.  Come participate in your CS student club!','2019-04-26' ),
+      Everyone is invited to attend.  Come participate in your CS student club!','2019-05-12' ),
 
-      (2,'Internship Opportunity', 'Internship opportunity with Ritter Communications. If you are interested in this position, please email Dr. Su with your resume by April 25.', '2019-04-28');
+      (2,'Internship Opportunity', 'Internship opportunity with Ritter Communications. If you are interested in this position, please email Dr. Su with your resume by April 25.', '2019-05-12');
 
 
 -- useful links
