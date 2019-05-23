@@ -4,4 +4,4 @@
 
 ## Authors
 
-Blake Poush, Samuel Reagan, Ariana Garcia, and Hunter Ingle
+Blake Poush, Samuel Reagan, And Ariana Garcia
