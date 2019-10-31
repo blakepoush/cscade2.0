@@ -9,7 +9,7 @@
     "async-mkdirp": "^1.2.7",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
-    "connect-pg-simple": "^5.0.0",
+    "connect-pg-simple": "^6.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "^4.16.4",
